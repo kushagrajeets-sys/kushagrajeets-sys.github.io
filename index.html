@@ -1,24 +1,261 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Kushagra | Developer Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kushagra | Game Developer</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0f19;
+            color: white;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            background: rgba(11, 15, 25, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        nav h2 {
+            color: #4da6ff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: #4da6ff;
+        }
+
+        section {
+            padding: 100px 10%;
+            min-height: 100vh;
+        }
+
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0b0f19, #111b31);
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #4da6ff;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #b8c1d1;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #4da6ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 5px;
+        }
+
+        .button:hover {
+            background: #267fd1;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+
+        .about {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #c5ccda;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .projects {
+            display: flex;
+            justify-content: center;
+        }
+
+        .project-card {
+            max-width: 600px;
+            background: #151c2c;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #26344f;
+        }
+
+        .project-card h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #4da6ff;
+        }
+
+        .project-card p {
+            color: #c5ccda;
+            line-height: 1.6;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            background: #151c2c;
+            padding: 15px 25px;
+            border-radius: 10px;
+            border: 1px solid #26344f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #070a11;
+            color: #8892a5;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav a {
+                margin-left: 10px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Hi, I'm Kushagra 👋</h1>
+    <nav>
+        <h2>Kushagra</h2>
 
-    <h2>Game Developer & Student</h2>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+        </div>
+    </nav>
 
-    <p>Welcome to my developer portfolio!</p>
 
-    <h2>My Projects</h2>
+    <section class="hero" id="home">
+        <div>
+            <h1>Hi, I'm <span>Kushagra</span> 👋</h1>
 
-    <h3>EasyJet Airline Game</h3>
+            <p>Student • Game Developer • Creator</p>
 
-    <p>
-        An airline-themed game that I am currently developing.
-    </p>
+            <a href="#projects" class="button">View My Projects</a>
+            <a href="#about" class="button">About Me</a>
+        </div>
+    </section>
+
+
+    <section id="about">
+        <h2 class="title">About Me</h2>
+
+        <div class="about">
+            <p>
+                Hi! I'm Kushagra, a student and aspiring game developer.
+                I enjoy creating games, learning technology and building
+                new projects.
+            </p>
+
+            <br>
+
+            <p>
+                Outside of development, I enjoy playing football,
+                playing piano and participating in NCC.
+            </p>
+        </div>
+    </section>
+
+
+    <section id="projects">
+        <h2 class="title">My Projects</h2>
+
+        <div class="projects">
+
+            <div class="project-card">
+
+                <h3>✈️ EasyJet Airline Game</h3>
+
+                <p>
+                    An airline-themed game currently under development.
+                    The project focuses on creating an interactive
+                    airline experience with aircraft, airports and
+                    gameplay systems.
+                </p>
+
+                <br>
+
+                <a href="#" class="button">Project Details</a>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="skills">
+        <h2 class="title">My Skills</h2>
+
+        <div class="skills">
+
+            <div class="skill">🎮 Game Development</div>
+            <div class="skill">💻 HTML</div>
+            <div class="skill">🎨 Web Design</div>
+            <div class="skill">🧠 Problem Solving</div>
+            <div class="skill">⚙️ Technology</div>
+
+        </div>
+    </section>
+
+
+    <footer>
+        © 2026 Kushagra • Developer Portfolio
+    </footer>
 
 </body>
 </html>
