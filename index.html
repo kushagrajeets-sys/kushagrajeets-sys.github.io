@@ -8,7 +8,7 @@
 ```
 <title>Kushagra | Game Developer</title>
 
-<meta name="description" content="Kushagra - Student, Game Developer and Creator. Explore my projects, achievements and skills.">
+<meta name="description" content="Kushagra - Student, Game Developer and Creator.">
 
 <style>
     * {
@@ -21,7 +21,7 @@
     body {
         font-family: Arial, Helvetica, sans-serif;
         background: #0b0f19;
-        color: #ffffff;
+        color: white;
         line-height: 1.6;
     }
 
@@ -53,7 +53,6 @@
     .logo {
         font-size: 22px;
         font-weight: bold;
-        color: #ffffff;
     }
 
     .logo span {
@@ -83,8 +82,11 @@
         align-items: center;
         text-align: center;
         padding: 100px 20px 50px;
-        background:
-            radial-gradient(circle at top, #17233d 0%, #0b0f19 55%);
+        background: radial-gradient(
+            circle at top,
+            #17233d 0%,
+            #0b0f19 55%
+        );
     }
 
     .hero-content {
@@ -138,7 +140,7 @@
 
     .btn.secondary {
         background: transparent;
-        color: #ffffff;
+        color: white;
         border: 1px solid #39445a;
     }
 
@@ -147,7 +149,7 @@
         color: #6ea8ff;
     }
 
-    /* GENERAL */
+    /* SECTIONS */
     section {
         max-width: 1100px;
         margin: auto;
@@ -184,7 +186,10 @@
     /* PROJECTS */
     .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(290px, 1fr)
+        );
         gap: 25px;
     }
 
@@ -247,11 +252,26 @@
         border: 1px solid #20283a;
         border-radius: 15px;
         padding: 30px;
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .achievement-image {
+        width: 280px;
+        max-width: 100%;
+        border-radius: 12px;
+        border: 1px solid #29344a;
+        object-fit: cover;
+    }
+
+    .achievement-content {
+        flex: 1;
     }
 
     .achievement-card h3 {
         font-size: 24px;
-        margin-bottom: 8px;
+        margin-bottom: 10px;
     }
 
     .achievement-card p {
@@ -287,6 +307,13 @@
         margin: 10px 0 25px;
     }
 
+    .contact-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
     /* FOOTER */
     footer {
         text-align: center;
@@ -316,6 +343,16 @@
 
         section {
             padding: 70px 20px;
+        }
+
+        .achievement-card {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .achievement-image {
+            width: 100%;
+            max-width: 400px;
         }
     }
 </style>
@@ -433,7 +470,7 @@
     <div class="projects-grid">
 
 
-        <!-- NEW GAME: BEN'S MILITARY -->
+        <!-- BEN'S MILITARY - NEW -->
         <div class="project-card">
 
             <div class="project-icon">
@@ -506,7 +543,7 @@
             </div>
 
             <span class="status">
-                MORE COMING SOON
+                COMING SOON
             </span>
 
             <h3>
@@ -546,15 +583,26 @@
 
     <div class="achievement-card">
 
-        <h3>
-            🏆 2nd Prize — Game Making Competition 2025
-        </h3>
+        <!-- TROPHY PHOTO -->
+        <img
+            src="coder.png"
+            alt="Game Making Competition trophy"
+            class="achievement-image"
+        >
 
-        <p>
-            Won 2nd Prize in the Game Making Competition 2025
-            at NC Jindal Public School. I worked on the game
-            development and coding as part of a three-person team.
-        </p>
+        <div class="achievement-content">
+
+            <h3>
+                🏆 2nd Prize — Game Making Competition 2025
+            </h3>
+
+            <p>
+                Won 2nd Prize in the Game Making Competition 2025
+                at NC Jindal Public School. I worked on the game
+                development and coding as part of a three-person team.
+            </p>
+
+        </div>
 
     </div>
 
@@ -574,37 +622,14 @@
 
     <div class="skills">
 
-        <div class="skill">
-            Game Development
-        </div>
-
-        <div class="skill">
-            Roblox Development
-        </div>
-
-        <div class="skill">
-            Lua / Luau
-        </div>
-
-        <div class="skill">
-            Programming
-        </div>
-
-        <div class="skill">
-            Game Design
-        </div>
-
-        <div class="skill">
-            Problem Solving
-        </div>
-
-        <div class="skill">
-            Creative Thinking
-        </div>
-
-        <div class="skill">
-            Teamwork
-        </div>
+        <div class="skill">Game Development</div>
+        <div class="skill">Roblox Development</div>
+        <div class="skill">Lua / Luau</div>
+        <div class="skill">Programming</div>
+        <div class="skill">Game Design</div>
+        <div class="skill">Problem Solving</div>
+        <div class="skill">Creative Thinking</div>
+        <div class="skill">Teamwork</div>
 
     </div>
 
@@ -629,20 +654,44 @@
         </h3>
 
         <p>
-            You can find my projects and code on GitHub.
+            Find me across my gaming, coding and social platforms.
         </p>
 
-        <div class="buttons">
+        <div class="contact-buttons">
 
+            <!-- GITHUB -->
             <a
                 href="https://github.com/kushagrajeets-sys"
                 target="_blank"
                 class="btn"
             >
-                GitHub
+                💻 GitHub
+            </a>
+
+            <!-- ROBLOX -->
+            <a
+                href="https://www.roblox.com/users/profile?username=legendkillerbossboss"
+                target="_blank"
+                class="btn"
+            >
+                🎮 Roblox
+            </a>
+
+            <!-- DISCORD -->
+            <a
+                href="#"
+                class="btn"
+                onclick="copyDiscord(); return false;"
+            >
+                💬 Discord
             </a>
 
         </div>
+
+        <p id="discord-name"
+           style="margin-top:20px; color:#6ea8ff;">
+            Discord: gagan8504
+        </p>
 
     </div>
 
@@ -657,6 +706,22 @@
     </p>
 
 </footer>
+
+
+<!-- DISCORD COPY SCRIPT -->
+<script>
+    function copyDiscord() {
+        navigator.clipboard.writeText("gagan8504");
+
+        const text = document.getElementById("discord-name");
+
+        text.innerText = "Discord username copied: gagan8504";
+
+        setTimeout(function() {
+            text.innerText = "Discord: gagan8504";
+        }, 2500);
+    }
+</script>
 ```
 
 </body>
