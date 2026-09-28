@@ -1,770 +1,581 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Kushagra | Game Developer</title>
-
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        scroll-behavior: smooth;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        background: #0b0f19;
-        color: white;
-    }
-
-    /* ================= NAVIGATION ================= */
-
-    nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        padding: 20px 8%;
-        background: rgba(11, 15, 25, 0.95);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1000;
-        border-bottom: 1px solid #1c2940;
-    }
-
-    nav h2 {
-        color: #4da6ff;
-    }
-
-    nav a {
-        color: white;
-        text-decoration: none;
-        margin-left: 25px;
-        transition: 0.3s;
-    }
-
-    nav a:hover {
-        color: #4da6ff;
-    }
-
-
-    /* ================= SECTIONS ================= */
-
-    section {
-        padding: 110px 10%;
-        min-height: 100vh;
-    }
-
-
-    /* ================= HOME ================= */
-
-    .hero {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background: linear-gradient(135deg, #0b0f19, #111b31);
-    }
-
-    .hero h1 {
-        font-size: 60px;
-        margin-bottom: 15px;
-    }
-
-    .hero h1 span {
-        color: #4da6ff;
-    }
-
-    .hero p {
-        font-size: 20px;
-        color: #b8c1d1;
-        margin-bottom: 30px;
-    }
-
-
-    /* ================= BUTTONS ================= */
-
-    .button {
-        display: inline-block;
-        padding: 13px 25px;
-        background: #4da6ff;
-        color: white;
-        text-decoration: none;
-        border-radius: 8px;
-        margin: 5px;
-        transition: 0.3s;
-    }
-
-    .button:hover {
-        background: #267fd1;
-        transform: translateY(-3px);
-    }
-
-    .button.secondary {
-        background: transparent;
-        border: 1px solid #4da6ff;
-    }
-
-    .button.secondary:hover {
-        background: #4da6ff;
-    }
-
-
-    /* ================= TITLES ================= */
-
-    .title {
-        text-align: center;
-        font-size: 40px;
-        margin-bottom: 50px;
-    }
-
-
-    /* ================= ABOUT ================= */
-
-    .about {
-        max-width: 800px;
-        margin: auto;
-        text-align: center;
-        color: #c5ccda;
-        font-size: 18px;
-        line-height: 1.8;
-    }
-
-
-    /* ================= PROJECTS ================= */
-
-    .projects {
-        display: flex;
-        justify-content: center;
-    }
-
-    .project-card {
-        max-width: 750px;
-        width: 100%;
-        background: #151c2c;
-        padding: 40px;
-        border-radius: 15px;
-        text-align: center;
-        border: 1px solid #26344f;
-        transition: 0.3s;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px);
-        border-color: #4da6ff;
-    }
-
-    .project-icon {
-        font-size: 65px;
-        margin-bottom: 15px;
-    }
-
-    .project-card h3 {
-        font-size: 30px;
-        margin-bottom: 15px;
-        color: #4da6ff;
-    }
-
-    .project-card p {
-        color: #c5ccda;
-        line-height: 1.7;
-        font-size: 17px;
-    }
-
-    .status {
-        display: inline-block;
-        margin: 20px 0;
-        padding: 8px 16px;
-        border-radius: 20px;
-        background: #1d2b42;
-        color: #72b8ff;
-        font-size: 14px;
-    }
-
-    .features {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin: 25px 0;
-    }
-
-    .feature {
-        padding: 10px 15px;
-        background: #101827;
-        border: 1px solid #26344f;
-        border-radius: 8px;
-        color: #c5ccda;
-    }
-
-
-    /* ================= ACHIEVEMENTS ================= */
-
-    .achievements {
-        display: flex;
-        justify-content: center;
-    }
-
-    .achievement-card {
-        max-width: 700px;
-        width: 100%;
-        background: #151c2c;
-        padding: 35px;
-        border-radius: 15px;
-        text-align: center;
-        border: 1px solid #26344f;
-    }
-
-    .achievement-card h3 {
-        font-size: 28px;
-        color: #4da6ff;
-        margin-bottom: 15px;
-    }
-
-    .achievement-card p {
-        color: #c5ccda;
-        line-height: 1.8;
-        font-size: 17px;
-    }
-
-    .trophy-image {
-        width: 100%;
-        max-width: 550px;
-        max-height: 500px;
-        object-fit: contain;
-        border-radius: 12px;
-        display: block;
-        margin: 0 auto 30px auto;
-        border: 1px solid #26344f;
-    }
-
-
-    /* ================= SKILLS ================= */
-
-    .skills {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-        max-width: 900px;
-        margin: auto;
-    }
-
-    .skill {
-        background: #151c2c;
-        padding: 15px 25px;
-        border-radius: 10px;
-        border: 1px solid #26344f;
-        transition: 0.3s;
-    }
-
-    .skill:hover {
-        border-color: #4da6ff;
-        transform: translateY(-3px);
-    }
-
-
-    /* ================= CONTACT ================= */
-
-    .contact {
-        max-width: 1000px;
-        margin: auto;
-        text-align: center;
-    }
-
-    .contact-intro {
-        color: #c5ccda;
-        font-size: 18px;
-        line-height: 1.7;
-        margin-bottom: 40px;
-    }
-
-    .contact-links {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .contact-card {
-        width: 280px;
-        background: #151c2c;
-        padding: 30px 20px;
-        border-radius: 15px;
-        border: 1px solid #26344f;
-        transition: 0.3s;
-    }
-
-    .contact-card:hover {
-        transform: translateY(-6px);
-        border-color: #4da6ff;
-    }
-
-    .contact-icon {
-        font-size: 45px;
-        margin-bottom: 15px;
-    }
-
-    .contact-card h3 {
-        color: #4da6ff;
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-
-    .contact-card p {
-        color: #c5ccda;
-        margin-bottom: 20px;
-        word-break: break-word;
-    }
-
-    .contact-button {
-        display: inline-block;
-        padding: 10px 18px;
-        color: white;
-        text-decoration: none;
-        border: 1px solid #4da6ff;
-        border-radius: 7px;
-        transition: 0.3s;
-    }
-
-    .contact-button:hover {
-        background: #4da6ff;
-    }
-
-
-    /* ================= FOOTER ================= */
-
-    footer {
-        text-align: center;
-        padding: 30px;
-        background: #070a11;
-        color: #8892a5;
-    }
-
-
-    /* ================= MOBILE ================= */
-
-    @media (max-width: 700px) {
-
+    <title>Kushagra | Game Developer</title>
+
+    <meta name="description" content="Kushagra - Student, Game Developer and Creator. Explore my projects, achievements and skills.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0f19;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
         nav {
-            padding: 15px 5%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(11, 15, 25, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #20283a;
         }
 
-        nav h2 {
-            font-size: 20px;
-        }
-
-        nav a {
-            margin-left: 8px;
-            font-size: 12px;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-        }
-
-        .hero p {
-            font-size: 17px;
-        }
-
-        .title {
-            font-size: 32px;
-        }
-
-        .project-card {
-            padding: 25px;
-        }
-
-        .trophy-image {
-            max-height: 350px;
-        }
-
-        .contact-links {
-            flex-direction: column;
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .contact-card {
-            width: 100%;
-            max-width: 350px;
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
         }
-    }
 
-</style>
-```
+        .logo span {
+            color: #6ea8ff;
+        }
 
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #c7cedb;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #6ea8ff;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px 50px;
+            background:
+                radial-gradient(circle at top, #17233d 0%, #0b0f19 55%);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 85px);
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: #6ea8ff;
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 4vw, 30px);
+            color: #c7cedb;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #9da8ba;
+            font-size: 18px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            background: #6ea8ff;
+            color: #07101f;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        .btn.secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 1px solid #39445a;
+        }
+
+        .btn.secondary:hover {
+            border-color: #6ea8ff;
+            color: #6ea8ff;
+        }
+
+        /* GENERAL */
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 90px 25px;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: #6ea8ff;
+        }
+
+        .section-description {
+            color: #9da8ba;
+            margin-bottom: 40px;
+        }
+
+        /* ABOUT */
+        .about-box {
+            background: #111827;
+            border: 1px solid #20283a;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .about-box p {
+            color: #b6c0d0;
+            font-size: 17px;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #111827;
+            border: 1px solid #20283a;
+            border-radius: 15px;
+            padding: 28px;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            border-color: #6ea8ff;
+        }
+
+        .project-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .project-card p {
+            color: #9da8ba;
+            margin-bottom: 20px;
+        }
+
+        .status {
+            display: inline-block;
+            width: fit-content;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: #202b40;
+            color: #8dbaff;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .project-link {
+            margin-top: auto;
+            color: #6ea8ff;
+            font-weight: bold;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ACHIEVEMENTS */
+        .achievement-card {
+            background: #111827;
+            border: 1px solid #20283a;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .achievement-card h3 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .achievement-card p {
+            color: #9da8ba;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 10px 17px;
+            background: #111827;
+            border: 1px solid #29344a;
+            border-radius: 8px;
+            color: #cbd5e1;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            text-align: center;
+            background: #111827;
+            border: 1px solid #20283a;
+            border-radius: 15px;
+            padding: 45px 25px;
+        }
+
+        .contact-box p {
+            color: #9da8ba;
+            margin: 10px 0 25px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid #20283a;
+            color: #6f7b8f;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero {
+                padding-top: 140px;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-```
-<!-- ================= NAVIGATION ================= -->
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Kushagra<span>.</span></div>
 
-<nav>
-
-    <h2>Kushagra</h2>
-
-    <div>
-
-        <a href="#home">Home</a>
-
-        <a href="#about">About</a>
-
-        <a href="#projects">Projects</a>
-
-        <a href="#achievements">Achievements</a>
-
-        <a href="#skills">Skills</a>
-
-        <a href="#contact">Contact</a>
-
-    </div>
-
-</nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
 
+    <!-- HOME -->
+    <section class="hero" id="home">
+        <div class="hero-content">
 
-<!-- ================= HOME ================= -->
+            <h1>Hi, I'm <span>Kushagra</span></h1>
 
-<section class="hero" id="home">
-
-    <div>
-
-        <h1>
-            Hi, I'm <span>Kushagra</span> 👋
-        </h1>
-
-        <p>
-            Student • Game Developer • Creator
-        </p>
-
-        <a href="#projects" class="button">
-            View My Projects
-        </a>
-
-        <a href="#about" class="button secondary">
-            About Me
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= ABOUT ================= -->
-
-<section id="about">
-
-    <h2 class="title">
-        About Me
-    </h2>
-
-    <div class="about">
-
-        <p>
-            Hi! I'm Kushagra, a student and aspiring
-            game developer. I enjoy creating games,
-            learning technology and building new projects.
-        </p>
-
-        <br>
-
-        <p>
-            Outside of development, I enjoy playing
-            football, playing piano and participating
-            in NCC.
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= PROJECTS ================= -->
-
-<section id="projects">
-
-    <h2 class="title">
-        My Projects
-    </h2>
-
-    <div class="projects">
-
-        <div class="project-card">
-
-            <div class="project-icon">
-                ✈️
-            </div>
-
-            <h3>
-                EasyJet Airline Game
-            </h3>
-
-            <span class="status">
-                🚧 Currently in Development
-            </span>
+            <h2>Student • Game Developer • Creator</h2>
 
             <p>
-                An airline-themed game being developed
-                in Roblox Studio. The project is focused
-                on creating an interactive airline
-                experience where players can explore
-                airports, aircraft and different
-                gameplay systems.
+                I enjoy creating games, coding new ideas and learning
+                how technology can turn ideas into interactive experiences.
             </p>
 
-            <div class="features">
-
-                <div class="feature">
-                    ✈️ Aircraft
-                </div>
-
-                <div class="feature">
-                    🛫 Airports
-                </div>
-
-                <div class="feature">
-                    🎮 Gameplay
-                </div>
-
-                <div class="feature">
-                    🏗️ Roblox Studio
-                </div>
-
-            </div>
-
-            <a href="#" class="button">
-                🎮 Play Game
-            </a>
-
-            <a href="#" class="button secondary">
-                📋 Project Details
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= ACHIEVEMENTS ================= -->
-
-<section id="achievements">
-
-    <h2 class="title">
-        🏆 Achievements
-    </h2>
-
-    <div class="achievements">
-
-        <div class="achievement-card">
-
-            <img
-                src="coder.png"
-                alt="Kushagra's Game Making Competition Trophy"
-                class="trophy-image">
-
-            <h3>
-                2nd Prize — Game Making Competition
-            </h3>
-
-            <p>
-                <strong>2025</strong>
-                <br>
-                NC Jindal Public School
-                <br>
-                Game Making Competition
-            </p>
-
-            <br>
-
-            <p>
-                Awarded 2nd Prize for participation
-                and achievement in a game-making
-                competition.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= SKILLS ================= -->
-
-<section id="skills">
-
-    <h2 class="title">
-        My Skills
-    </h2>
-
-    <div class="skills">
-
-        <div class="skill">
-            🎮 Game Development
-        </div>
-
-        <div class="skill">
-            💻 Coding
-        </div>
-
-        <div class="skill">
-            💻 HTML
-        </div>
-
-        <div class="skill">
-            🎨 Web Design
-        </div>
-
-        <div class="skill">
-            🧠 Problem Solving
-        </div>
-
-        <div class="skill">
-            ⚙️ Technology
-        </div>
-
-        <div class="skill">
-            🏗️ Roblox Studio
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact">
-
-    <h2 class="title">
-        Contact Me
-    </h2>
-
-    <div class="contact">
-
-        <p class="contact-intro">
-            Interested in my projects or want to
-            know more about my work?
-            <br>
-            You can find me on Roblox, Discord and GitHub.
-        </p>
-
-
-        <div class="contact-links">
-
-
-            <!-- ROBLOX -->
-
-            <div class="contact-card">
-
-                <div class="contact-icon">
-                    🎮
-                </div>
-
-                <h3>
-                    Roblox
-                </h3>
-
-                <p>
-                    legendkillerbossboss
-                </p>
-
-                <a
-                    href="https://www.roblox.com/users/3208042520/profile"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="contact-button">
-
-                    View Roblox Profile
-
-                </a>
-
-            </div>
-
-
-
-            <!-- DISCORD -->
-
-            <div class="contact-card">
-
-                <div class="contact-icon">
-                    💬
-                </div>
-
-                <h3>
-                    Discord
-                </h3>
-
-                <p>
-                    gagan8504
-                </p>
-
-                <span class="contact-button">
-                    Discord Username
-                </span>
-
-            </div>
-
-
-
-            <!-- GITHUB -->
-
-            <div class="contact-card">
-
-                <div class="contact-icon">
-                    🐙
-                </div>
-
-                <h3>
-                    GitHub
-                </h3>
-
-                <p>
-                    kushagrajeets-sys
-                </p>
+            <div class="buttons">
+                <a href="#projects" class="btn">View My Projects</a>
 
                 <a
                     href="https://github.com/kushagrajeets-sys"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    class="contact-button">
+                    class="btn secondary"
+                >
+                    GitHub
+                </a>
+            </div>
 
-                    View GitHub
+        </div>
+    </section>
 
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <h2 class="section-title">About <span>Me</span></h2>
+
+        <p class="section-description">
+            A little about who I am and what I enjoy doing.
+        </p>
+
+        <div class="about-box">
+
+            <p>
+                I'm Kushagra, a student and game developer who enjoys
+                programming and creating games. I like experimenting with
+                different ideas, building interactive systems and learning
+                new technologies through practical projects.
+            </p>
+
+            <br>
+
+            <p>
+                Game development is one of the areas I enjoy the most.
+                I work on Roblox projects where I contribute to coding
+                and help turn ideas into playable experiences.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <h2 class="section-title">My <span>Projects</span></h2>
+
+        <p class="section-description">
+            Games and projects that I have worked on or am currently developing.
+        </p>
+
+
+        <div class="projects-grid">
+
+            <!-- EASYJET -->
+            <div class="project-card">
+
+                <div class="project-icon">✈️</div>
+
+                <span class="status">IN DEVELOPMENT</span>
+
+                <h3>EasyJet Airline Game</h3>
+
+                <p>
+                    A Roblox airline game currently in development.
+                    I contribute to the development and coding of the game,
+                    including interactive systems and gameplay features.
+                </p>
+
+                <a
+                    href="https://www.roblox.com/games/106550092481372/Easyjet-Roblox-Main-Game"
+                    target="_blank"
+                    class="project-link"
+                >
+                    View on Roblox →
                 </a>
 
             </div>
 
 
+            <!-- BENS MILITARY -->
+            <div class="project-card">
+
+                <div class="project-icon">🛩️</div>
+
+                <span class="status">IN DEVELOPMENT</span>
+
+                <h3>Ben's Military</h3>
+
+                <p>
+                    A military roleplay game on Roblox currently in development.
+                    I work on the coding and development of the game,
+                    helping create systems and interactive gameplay features.
+                </p>
+
+                <a
+                    href="https://www.roblox.com/games/90809934815843/bens-military"
+                    target="_blank"
+                    class="project-link"
+                >
+                    View on Roblox →
+                </a>
+
+            </div>
+
+
+            <!-- FUTURE PROJECT -->
+            <div class="project-card">
+
+                <div class="project-icon">🎮</div>
+
+                <span class="status">MORE COMING SOON</span>
+
+                <h3>Future Projects</h3>
+
+                <p>
+                    More games and coding projects are currently being
+                    planned and developed. This section will grow as
+                    I continue learning and creating.
+                </p>
+
+                <a href="#contact" class="project-link">
+                    Stay Tuned →
+                </a>
+
+            </div>
+
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements">
 
-<!-- ================= FOOTER ================= -->
+        <h2 class="section-title">My <span>Achievements</span></h2>
 
-<footer>
+        <p class="section-description">
+            Some achievements from my journey as a student and creator.
+        </p>
 
-    © 2026 Kushagra • Developer Portfolio
+        <div class="achievement-card">
 
-</footer>
-```
+            <h3>🏆 2nd Prize — Game Making Competition 2025</h3>
+
+            <p>
+                Won 2nd Prize in the Game Making Competition 2025
+                at NC Jindal Public School. I worked on the game
+                development and coding as part of a three-person team.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <h2 class="section-title">My <span>Skills</span></h2>
+
+        <p class="section-description">
+            Technologies and areas I am learning and working with.
+        </p>
+
+        <div class="skills">
+
+            <div class="skill">Game Development</div>
+            <div class="skill">Roblox Development</div>
+            <div class="skill">Lua / Luau</div>
+            <div class="skill">Programming</div>
+            <div class="skill">Game Design</div>
+            <div class="skill">Problem Solving</div>
+            <div class="skill">Creative Thinking</div>
+            <div class="skill">Teamwork</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <h2 class="section-title">Get In <span>Touch</span></h2>
+
+        <p class="section-description">
+            Interested in my work or want to connect?
+        </p>
+
+        <div class="contact-box">
+
+            <h3>Let's Connect</h3>
+
+            <p>
+                You can find my projects and code on GitHub.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    href="https://github.com/kushagrajeets-sys"
+                    target="_blank"
+                    class="btn"
+                >
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Kushagra. Built with code and creativity.
+        </p>
+
+    </footer>
+
 
 </body>
 </html>
