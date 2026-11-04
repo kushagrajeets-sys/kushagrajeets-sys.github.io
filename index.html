@@ -1,682 +1,740 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kushagra | Game Developer</title>
+<meta name="description" content="Kushagra - Student, Game Developer and Creator.">
 
-    <title>Kushagra | Game Developer</title>
-    <meta name="description" content="Kushagra - Student, Game Developer and Creator.">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0f19;
+    color: white;
+    line-height: 1.6;
+}
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0b0f19;
-            color: white;
-            line-height: 1.6;
-        }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+/* NAVBAR */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(11, 15, 25, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #20283a;
+}
 
-        /* NAVBAR */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(11, 15, 25, 0.92);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #20283a;
-        }
+.nav-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .nav-container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 18px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
 
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-        }
+.logo span,
+.hero h1 span,
+.section-title span {
+    color: #6ea8ff;
+}
 
-        .logo span {
-            color: #6ea8ff;
-        }
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
+.nav-links a {
+    color: #c7cedb;
+    transition: 0.3s;
+}
 
-        .nav-links a {
-            color: #c7cedb;
-            transition: 0.3s;
-        }
+.nav-links a:hover {
+    color: #6ea8ff;
+}
 
-        .nav-links a:hover {
-            color: #6ea8ff;
-        }
+/* HERO */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 50px;
+    background: radial-gradient(circle at top, #17233d 0%, #0b0f19 55%);
+}
 
-        /* HERO */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 100px 20px 50px;
-            background: radial-gradient(
-                circle at top,
-                #17233d 0%,
-                #0b0f19 55%
-            );
-        }
+.hero-content {
+    max-width: 850px;
+}
 
-        .hero-content {
-            max-width: 850px;
-        }
+.hero h1 {
+    font-size: clamp(45px, 8vw, 85px);
+    margin-bottom: 10px;
+}
 
-        .hero h1 {
-            font-size: clamp(45px, 8vw, 85px);
-            margin-bottom: 10px;
-        }
+.hero h2 {
+    font-size: clamp(20px, 4vw, 30px);
+    color: #c7cedb;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
 
-        .hero h1 span {
-            color: #6ea8ff;
-        }
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    color: #9da8ba;
+    font-size: 18px;
+}
 
-        .hero h2 {
-            font-size: clamp(20px, 4vw, 30px);
-            color: #c7cedb;
-            font-weight: normal;
-            margin-bottom: 20px;
-        }
+.buttons,
+.contact-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
 
-        .hero p {
-            max-width: 650px;
-            margin: auto;
-            color: #9da8ba;
-            font-size: 18px;
-        }
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background: #6ea8ff;
+    color: #07101f;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
-        .buttons {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+.btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
 
-        .btn {
-            padding: 12px 24px;
-            border-radius: 8px;
-            background: #6ea8ff;
-            color: #07101f;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+.btn.secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid #39445a;
+}
 
-        .btn:hover {
-            transform: translateY(-3px);
-            opacity: 0.9;
-        }
+.btn.secondary:hover {
+    border-color: #6ea8ff;
+    color: #6ea8ff;
+}
 
-        .btn.secondary {
-            background: transparent;
-            color: white;
-            border: 1px solid #39445a;
-        }
+/* SECTIONS */
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 90px 25px;
+}
 
-        .btn.secondary:hover {
-            border-color: #6ea8ff;
-            color: #6ea8ff;
-        }
+.section-title {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
 
-        /* SECTIONS */
-        section {
-            max-width: 1100px;
-            margin: auto;
-            padding: 90px 25px;
-        }
+.section-description {
+    color: #9da8ba;
+    margin-bottom: 40px;
+}
 
-        .section-title {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
+/* ABOUT */
+.about-box {
+    background: #111827;
+    border: 1px solid #20283a;
+    border-radius: 15px;
+    padding: 30px;
+}
 
-        .section-title span {
-            color: #6ea8ff;
-        }
+.about-box p {
+    color: #b6c0d0;
+    font-size: 17px;
+}
 
-        .section-description {
-            color: #9da8ba;
-            margin-bottom: 40px;
-        }
+/* PROJECTS */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 25px;
+}
 
-        /* ABOUT */
-        .about-box {
-            background: #111827;
-            border: 1px solid #20283a;
-            border-radius: 15px;
-            padding: 30px;
-        }
+.project-card {
+    background: #111827;
+    border: 1px solid #20283a;
+    border-radius: 15px;
+    padding: 28px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    min-height: 390px;
+}
 
-        .about-box p {
-            color: #b6c0d0;
-            font-size: 17px;
-        }
+.project-card:hover {
+    transform: translateY(-7px);
+    border-color: #6ea8ff;
+}
 
-        /* PROJECTS */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(290px, 1fr)
-            );
-            gap: 25px;
-        }
+.project-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
 
-        .project-card {
-            background: #111827;
-            border: 1px solid #20283a;
-            border-radius: 15px;
-            padding: 28px;
-            transition: 0.3s;
-            display: flex;
-            flex-direction: column;
-            min-height: 390px;
-        }
+.project-card h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
 
-        .project-card:hover {
-            transform: translateY(-7px);
-            border-color: #6ea8ff;
-        }
+.project-card p {
+    color: #9da8ba;
+    margin-bottom: 20px;
+}
 
-        .project-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
+.status {
+    display: inline-block;
+    width: fit-content;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #202b40;
+    color: #8dbaff;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
 
-        .project-card h3 {
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
+.project-link {
+    margin-top: auto;
+    color: #6ea8ff;
+    font-weight: bold;
+}
 
-        .project-card p {
-            color: #9da8ba;
-            margin-bottom: 20px;
-        }
+.project-link:hover {
+    text-decoration: underline;
+}
 
-        .status {
-            display: inline-block;
-            width: fit-content;
-            padding: 5px 12px;
-            border-radius: 20px;
-            background: #202b40;
-            color: #8dbaff;
-            font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 18px;
-        }
+/* ACHIEVEMENTS */
+.achievement-card {
+    background: #111827;
+    border: 1px solid #20283a;
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
 
-        .project-link {
-            margin-top: auto;
-            color: #6ea8ff;
-            font-weight: bold;
-        }
+.achievement-image {
+    width: 280px;
+    max-width: 100%;
+    border-radius: 12px;
+    border: 1px solid #29344a;
+    object-fit: cover;
+}
 
-        .project-link:hover {
-            text-decoration: underline;
-        }
+.achievement-content {
+    flex: 1;
+}
 
-        /* ACHIEVEMENTS */
-        .achievement-card {
-            background: #111827;
-            border: 1px solid #20283a;
-            border-radius: 15px;
-            padding: 30px;
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
+.achievement-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
 
-        .achievement-image {
-            width: 280px;
-            max-width: 100%;
-            border-radius: 12px;
-            border: 1px solid #29344a;
-            object-fit: cover;
-        }
+.achievement-card p {
+    color: #9da8ba;
+}
 
-        .achievement-content {
-            flex: 1;
-        }
+/* INTERACTIVE SKILLS */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+}
 
-        .achievement-card h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
+.skill-item {
+    background: #111827;
+    border: 1px solid #29344a;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.25s;
+}
 
-        .achievement-card p {
-            color: #9da8ba;
-        }
+.skill-item:hover {
+    border-color: #6ea8ff;
+    transform: translateY(-2px);
+}
 
-        /* SKILLS */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+.skill-item[open] {
+    border-color: #6ea8ff;
+}
 
-        .skill {
-            padding: 10px 17px;
-            background: #111827;
-            border: 1px solid #29344a;
-            border-radius: 8px;
-            color: #cbd5e1;
-        }
+.skill-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 15px 17px;
+    color: #cbd5e1;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
 
-        /* CONTACT */
-        .contact-box {
-            text-align: center;
-            background: #111827;
-            border: 1px solid #20283a;
-            border-radius: 15px;
-            padding: 45px 25px;
-        }
+.skill-item summary::-webkit-details-marker {
+    display: none;
+}
 
-        .contact-box p {
-            color: #9da8ba;
-            margin: 10px 0 25px;
-        }
+.skill-item summary::after {
+    content: "+";
+    color: #6ea8ff;
+    font-size: 22px;
+}
 
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+.skill-item[open] summary::after {
+    content: "−";
+}
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            border-top: 1px solid #20283a;
-            color: #6f7b8f;
-        }
+.skill-description {
+    color: #9da8ba;
+    font-size: 14px;
+    padding: 0 17px 17px;
+    animation: reveal 0.2s ease;
+}
 
-        /* MOBILE */
-        @media (max-width: 700px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 12px;
-            }
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-            .nav-links {
-                gap: 15px;
-                font-size: 14px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+.skills-hint {
+    color: #77849a;
+    font-size: 14px;
+    margin-top: 16px;
+}
 
-            .hero {
-                padding-top: 140px;
-            }
+/* CONTACT */
+.contact-box {
+    text-align: center;
+    background: #111827;
+    border: 1px solid #20283a;
+    border-radius: 15px;
+    padding: 45px 25px;
+}
 
-            section {
-                padding: 70px 20px;
-            }
+.contact-box p {
+    color: #9da8ba;
+    margin: 10px 0 25px;
+}
 
-            .achievement-card {
-                flex-direction: column;
-                text-align: center;
-            }
+.contact-buttons {
+    margin-top: 0;
+}
 
-            .achievement-image {
-                width: 100%;
-                max-width: 400px;
-            }
-        }
-    </style>
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid #20283a;
+    color: #6f7b8f;
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        font-size: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding-top: 140px;
+    }
+
+    section {
+        padding: 70px 20px;
+    }
+
+    .achievement-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .achievement-image {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .skills {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="nav-container">
-
-            <div class="logo">
-                Kushagra<span>.</span>
-            </div>
-
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-
-        </div>
-    </nav>
-
-    <!-- HOME -->
-    <section class="hero" id="home">
-
-        <div class="hero-content">
-
-            <h1>
-                Hi, I'm <span>Kushagra</span>
-            </h1>
-
-            <h2>
-                Student • Game Developer • Creator
-            </h2>
-
-            <p>
-                I enjoy creating games, coding new ideas and learning
-                how technology can turn ideas into interactive experiences.
-            </p>
-
-            <div class="buttons">
-
-                <a href="#projects" class="btn">
-                    View My Projects
-                </a>
-
-                <a
-                    href="https://github.com/kushagrajeets-sys"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn secondary"
-                >
-                    GitHub
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-
-        <h2 class="section-title">
-            About <span>Me</span>
-        </h2>
-
-        <p class="section-description">
-            A little about who I am and what I enjoy doing.
-        </p>
-
-        <div class="about-box">
-
-            <p>
-                I'm Kushagra, a student and game developer who enjoys
-                programming and creating games. I like experimenting with
-                different ideas, building interactive systems and learning
-                new technologies through practical projects.
-            </p>
-
-            <br>
-
-            <p>
-                Game development is one of the areas I enjoy the most.
-                I work on Roblox projects where I contribute to coding
-                and help turn ideas into playable experiences.
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-
-        <h2 class="section-title">
-            My <span>Projects</span>
-        </h2>
-
-        <p class="section-description">
-            Games and projects that I have worked on or am currently developing.
-        </p>
-
-        <div class="projects-grid">
-
-            <!-- DEMONBLOX -->
-            <div class="project-card">
-
-                <div class="project-icon">
-                    ⚔️
-                </div>
-
-                <span class="status">
-                    IN DEVELOPMENT
-                </span>
-
-                <h3>
-                    DemonBlox
-                </h3>
-
-                <p>
-                    A Roblox anime-inspired RPG featuring Slayer and Demon
-                    factions, combat abilities, quests, NPCs, rank progression
-                    and immersive worlds. I am developing the game and building
-                    its gameplay systems and features.
-                </p>
-
-                <a
-                    href="https://www.roblox.com/games/108820000286951/DemonBlox"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="project-link"
-                >
-                    Play DemonBlox on Roblox →
-                </a>
-
-            </div>
-
-            <!-- FUTURE PROJECTS -->
-            <div class="project-card">
-
-                <div class="project-icon">
-                    🎮
-                </div>
-
-                <span class="status">
-                    COMING SOON
-                </span>
-
-                <h3>
-                    Future Projects
-                </h3>
-
-                <p>
-                    More games and coding projects are currently being
-                    planned and developed. This section will grow as
-                    I continue learning and creating.
-                </p>
-
-                <a
-                    href="#contact"
-                    class="project-link"
-                >
-                    Stay Tuned →
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ACHIEVEMENTS -->
-    <section id="achievements">
-
-        <h2 class="section-title">
-            My <span>Achievements</span>
-        </h2>
-
-        <p class="section-description">
-            Some achievements from my journey as a student and creator.
-        </p>
-
-        <div class="achievement-card">
-
-            <!-- TROPHY PHOTO -->
-            <img
-                src="coder.png"
-                alt="Game Making Competition trophy"
-                class="achievement-image"
-            >
-
-            <div class="achievement-content">
-
-                <h3>
-                    🏆 2nd Prize — Game Making Competition 2025
-                </h3>
-
-                <p>
-                    Won 2nd Prize in the Game Making Competition 2025
-                    at NC Jindal Public School. I worked on the game
-                    development and coding as part of a three-person team.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-
-        <h2 class="section-title">
-            My <span>Skills</span>
-        </h2>
-
-        <p class="section-description">
-            Technologies and areas I am learning and working with.
-        </p>
-
-        <div class="skills">
-
-            <div class="skill">Game Development</div>
-            <div class="skill">Roblox Development</div>
-            <div class="skill">Lua / Luau</div>
-            <div class="skill">Programming</div>
-            <div class="skill">Game Design</div>
-            <div class="skill">Problem Solving</div>
-            <div class="skill">Creative Thinking</div>
-            <div class="skill">Teamwork</div>
-
-        </div>
-
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-
-        <h2 class="section-title">
-            Get In <span>Touch</span>
-        </h2>
-
-        <p class="section-description">
-            Interested in my work or want to connect?
-        </p>
-
-        <div class="contact-box">
-
-            <h3>
-                Let's Connect
-            </h3>
-
-            <p>
-                Find me across my gaming, coding and social platforms.
-            </p>
-
-            <div class="contact-buttons">
-
-                <!-- GITHUB -->
-                <a
-                    href="https://github.com/kushagrajeets-sys"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn"
-                >
-                    💻 GitHub
-                </a>
-
-                <!-- NEW ROBLOX PROFILE -->
-                <a
-                    href="https://www.roblox.com/users/11788899475/profile"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn"
-                >
-                    🎮 Roblox
-                </a>
-
-                <!-- NEW DISCORD -->
-                <a
-                    href="#"
-                    class="btn"
-                    onclick="copyDiscord(); return false;"
-                >
-                    💬 Discord
-                </a>
-
-            </div>
-
-            <p id="discord-name"
-               style="margin-top:20px; color:#6ea8ff;">
-                Discord: kushagra_2012
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
+<!-- NAVIGATION -->
+<nav>
+    <div class="nav-container">
+        <div class="logo">Kushagra<span>.</span></div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Hi, I'm <span>Kushagra</span></h1>
+
+        <h2>Student • Game Developer • Creator</h2>
 
         <p>
-            © 2026 Kushagra. Built with code and creativity.
+            I enjoy creating games, coding new ideas and learning
+            how technology can turn ideas into interactive experiences.
         </p>
 
-    </footer>
+        <div class="buttons">
+            <a href="#projects" class="btn">View My Projects</a>
 
-    <!-- DISCORD COPY SCRIPT -->
-    <script>
-        function copyDiscord() {
-            navigator.clipboard.writeText("kushagra_2012");
+            <a href="https://github.com/kushagrajeets-sys"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn secondary">
+                GitHub
+            </a>
+        </div>
+    </div>
+</section>
 
-            const text = document.getElementById("discord-name");
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="section-title">About <span>Me</span></h2>
 
-            text.innerText = "Discord username copied: kushagra_2012";
+    <p class="section-description">
+        A little about who I am and what I enjoy doing.
+    </p>
 
-            setTimeout(function() {
-                text.innerText = "Discord: kushagra_2012";
-            }, 2500);
-        }
-    </script>
+    <div class="about-box">
+        <p>
+            I'm Kushagra, a student and game developer who enjoys
+            programming and creating games. I like experimenting with
+            different ideas, building interactive systems and learning
+            new technologies through practical projects.
+        </p>
+
+        <br>
+
+        <p>
+            Game development is one of the areas I enjoy the most.
+            I work on Roblox projects where I contribute to coding
+            and help turn ideas into playable experiences.
+        </p>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2 class="section-title">My <span>Projects</span></h2>
+
+    <p class="section-description">
+        Games and projects that I have worked on or am currently developing.
+    </p>
+
+    <div class="projects-grid">
+
+        <!-- DEMONBLOX -->
+        <div class="project-card">
+            <div class="project-icon">⚔️</div>
+
+            <span class="status">IN DEVELOPMENT</span>
+
+            <h3>DemonBlox</h3>
+
+            <p>
+                A Roblox anime-inspired RPG featuring Slayer and Demon
+                factions, combat abilities, quests, NPCs, rank progression
+                and immersive worlds. I am developing the game and building
+                its gameplay systems and features.
+            </p>
+
+            <a href="https://www.roblox.com/games/108820000286951/DemonBlox"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="project-link">
+                Play DemonBlox on Roblox →
+            </a>
+        </div>
+
+        <!-- FUTURE PROJECTS -->
+        <div class="project-card">
+            <div class="project-icon">🎮</div>
+
+            <span class="status">COMING SOON</span>
+
+            <h3>Future Projects</h3>
+
+            <p>
+                More games and coding projects are currently being
+                planned and developed. This section will grow as
+                I continue learning and creating.
+            </p>
+
+            <a href="#contact" class="project-link">
+                Stay Tuned →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+    <h2 class="section-title">My <span>Achievements</span></h2>
+
+    <p class="section-description">
+        Some achievements from my journey as a student and creator.
+    </p>
+
+    <div class="achievement-card">
+        <img src="coder.png"
+             alt="Game Making Competition trophy"
+             class="achievement-image">
+
+        <div class="achievement-content">
+            <h3>🏆 2nd Prize — Game Making Competition 2025</h3>
+
+            <p>
+                Won 2nd Prize in the Game Making Competition 2025
+                at NC Jindal Public School. I worked on the game
+                development and coding as part of a three-person team.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2 class="section-title">My <span>Skills</span></h2>
+
+    <p class="section-description">
+        Technologies and areas I am learning and working with.
+    </p>
+
+    <div class="skills">
+
+        <details class="skill-item">
+            <summary>1. Game Development</summary>
+            <p class="skill-description">
+                The process of creating video games, from planning gameplay
+                ideas to building features, testing them and improving the
+                overall player experience.
+            </p>
+        </details>
+
+        <details class="skill-item">
+            <summary>2. Roblox Development</summary>
+            <p class="skill-description">
+                Creating games and interactive experiences on Roblox using
+                Roblox Studio, scripts, game assets and the platform's
+                development tools.
+            </p>
+        </details>
+
+        <details class="skill-item">
+            <summary>3. Coding</summary>
+            <p class="skill-description">
+                Writing instructions that tell a computer how to perform
+                tasks. Coding is used to create game features, interactions
+                and systems.
+            </p>
+        </details>
+
+        <details class="skill-item">
+            <summary>4. Lua / Luau Scripting</summary>
+            <p class="skill-description">
+                Using Lua and Roblox's Luau language to script gameplay,
+                player actions, tools, abilities, events and other
+                interactive game features.
+            </p>
+        </details>
+
+        <details class="skill-item">
+            <summary>5. Programming</summary>
+            <p class="skill-description">
+                Designing and writing logical instructions that make
+                software work. This includes breaking problems into steps
+                and building solutions through code.
+            </p>
+        </details>
+
+        <details class="skill-item">
+            <summary>6. Game Design</summary>
+            <p class="skill-description">
+                Planning how a game works and feels, including its rules,
+                mechanics, maps, challenges, progression and the way
+                players interact with the game.
+            </p>
+        </details>
+
+        <details class="skill-item">
+            <summary>7. Problem Solving</summary>
+            <p class="skill-description">
+                Understanding issues, finding their causes and working
+                out practical solutions when developing or improving
+                game features.
+            </p>
+        </details>
+
+        <details class="skill-item">
+            <summary>8. Debugging</summary>
+            <p class="skill-description">
+                Finding, understanding and fixing errors in scripts or
+                game systems so that features work as intended and the
+                game runs more reliably.
+            </p>
+        </details>
+
+        <details class="skill-item">
+            <summary>9. Gameplay Systems</summary>
+            <p class="skill-description">
+                Building the systems that make a game function, such as
+                combat, abilities, health, rewards, ranks, player stats
+                and progression.
+            </p>
+        </details>
+
+        <details class="skill-item">
+            <summary>10. NPC Development</summary>
+            <p class="skill-description">
+                Creating and scripting non-player characters (NPCs), such
+                as bots and villagers. This can include making them move,
+                react to players, follow paths, detect nearby characters
+                and perform actions based on their behaviour.
+            </p>
+        </details>
+
+    </div>
+
+    <p class="skills-hint">
+        Click any skill to read its description.
+    </p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2 class="section-title">Get In <span>Touch</span></h2>
+
+    <p class="section-description">
+        Interested in my work or want to connect?
+    </p>
+
+    <div class="contact-box">
+        <h3>Let's Connect</h3>
+
+        <p>
+            Find me across my gaming, coding and social platforms.
+        </p>
+
+        <div class="contact-buttons">
+
+            <a href="https://github.com/kushagrajeets-sys"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn">
+                💻 GitHub
+            </a>
+
+            <a href="https://www.roblox.com/users/11788899475/profile"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn">
+                🎮 Roblox
+            </a>
+
+            <a href="#"
+               class="btn"
+               onclick="copyDiscord(); return false;">
+                💬 Copy Discord Username
+            </a>
+
+        </div>
+
+        <p id="discord-name"
+           style="margin-top:20px; color:#6ea8ff;">
+            Discord: kushagra_2012
+        </p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Kushagra. Built with code and creativity.</p>
+</footer>
+
+<!-- DISCORD COPY SCRIPT -->
+<script>
+function copyDiscord() {
+    const username = "kushagra_2012";
+    const text = document.getElementById("discord-name");
+
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(username)
+            .then(function() {
+                text.innerText =
+                    "Discord username copied: " + username;
+            })
+            .catch(function() {
+                text.innerText =
+                    "Discord username: " + username;
+            });
+    } else {
+        text.innerText = "Discord username: " + username;
+    }
+
+    setTimeout(function() {
+        text.innerText = "Discord: " + username;
+    }, 2500);
+}
+</script>
 
 </body>
 </html>
