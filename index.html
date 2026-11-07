@@ -2,871 +2,869 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0b0f19">
-    <title>Kushagra | Game Developer</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #0b0f19;
-            color: #fff;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 18px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(11, 15, 25, 0.96);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid #1d293b;
-        }
-
-        .logo {
-            font-size: 23px;
-            font-weight: 800;
-            color: #6ea8ff;
-        }
-
-        nav ul {
-            display: flex;
-            gap: 22px;
-            list-style: none;
-        }
-
-        nav ul a {
-            color: #c5cede;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        nav ul a:hover {
-            color: #6ea8ff;
-        }
-
-        section {
-            padding: 100px 10%;
-            scroll-margin-top: 65px;
-        }
-
-        .section-title {
-            font-size: 34px;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            color: #9ba9bd;
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .accent {
-            color: #6ea8ff;
-        }
-
-        /* HERO */
-
-        #home {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding-top: 130px;
-            background: radial-gradient(
-                ellipse at 50% 35%,
-                #172b4a 0%,
-                #0b0f19 65%
-            );
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(42px, 7vw, 70px);
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-
-        .hero-content h2 {
-            color: #6ea8ff;
-            font-size: clamp(20px, 3vw, 28px);
-            margin-bottom: 20px;
-        }
-
-        .hero-content p {
-            color: #b8c4d8;
-            font-size: 17px;
-            max-width: 650px;
-            margin: 0 auto 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background: #6ea8ff;
-            color: #07101f;
-            font-weight: 700;
-            border-radius: 8px;
-            margin: 7px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #fff;
-            transform: translateY(-3px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: #6ea8ff;
-            border: 1px solid #6ea8ff;
-        }
-
-        .btn-outline:hover {
-            background: #6ea8ff;
-            color: #07101f;
-        }
-
-        /* ABOUT */
-
-        #about,
-        #achievements,
-        #contact {
-            background: #101725;
-        }
-
-        .about-content {
-            max-width: 850px;
-            margin: auto;
-            text-align: center;
-            color: #c0ccdc;
-            font-size: 17px;
-        }
-
-        /* PROJECTS */
-
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(260px, 1fr)
-            );
-            gap: 25px;
-        }
-
-        .project-card {
-            background: #151e2e;
-            border: 1px solid #26344d;
-            border-radius: 14px;
-            padding: 28px;
-            transition: 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px);
-            border-color: #6ea8ff;
-        }
-
-        .project-card h3 {
-            color: #6ea8ff;
-            font-size: 22px;
-            margin-bottom: 5px;
-        }
-
-        .project-card p {
-            color: #b8c4d8;
-            margin: 16px 0 20px;
-        }
-
-        .project-status {
-            display: inline-block;
-            color: #a8caff;
-            background: #1c3150;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            margin-bottom: 15px;
-        }
-
-        .project-type {
-            color: #d6e5ff;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .project-role {
-            color: #91a9c9;
-            font-size: 13px;
-            margin-top: 3px;
-        }
-
-        .project-link {
-            color: #6ea8ff;
-            font-weight: 600;
-        }
-
-        .project-link:hover {
-            color: #fff;
-        }
-
-        /* ACHIEVEMENTS */
-
-        .achievement-card {
-            max-width: 750px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            padding: 25px;
-            background: #151e2e;
-            border: 1px solid #26344d;
-            border-radius: 14px;
-        }
-
-        .achievement-card img {
-            width: 220px;
-            max-width: 40%;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-
-        .achievement-info h3 {
-            color: #6ea8ff;
-            margin-bottom: 10px;
-        }
-
-        .achievement-info p {
-            color: #b8c4d8;
-        }
-
-        /* SKILLS */
-
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(230px, 1fr)
-            );
-            gap: 16px;
-            max-width: 1050px;
-            margin: auto;
-        }
-
-        .skill-item {
-            background: #151e2e;
-            border: 1px solid #26344d;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-
-        .skill-item:hover {
-            border-color: #6ea8ff;
-            transform: translateY(-3px);
-        }
-
-        .skill-item summary {
-            padding: 19px;
-            cursor: pointer;
-            font-weight: 650;
-            color: #fff;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .skill-item summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .skill-item summary::after {
-            content: "+";
-            color: #6ea8ff;
-            font-size: 23px;
-            font-weight: 400;
-        }
-
-        .skill-item[open] summary::after {
-            content: "−";
-        }
-
-        .skill-item[open] {
-            border-color: #6ea8ff;
-            background: #19263a;
-        }
-
-        .skill-description {
-            color: #b8c4d8;
-            padding: 0 19px 19px;
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-        /* CONTACT */
-
-        .contact-content {
-            max-width: 700px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .contact-content p {
-            color: #b8c4d8;
-            margin-bottom: 20px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 25px;
-        }
-
-        .contact-links a,
-        .contact-links button {
-            padding: 11px 20px;
-            border: 1px solid #31445f;
-            background: #151e2e;
-            color: #6ea8ff;
-            border-radius: 8px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .contact-links a:hover,
-        .contact-links button:hover {
-            background: #6ea8ff;
-            color: #07101f;
-        }
-
-        #copy-message {
-            color: #6ea8ff;
-            margin-top: 12px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: #8492a8;
-            border-top: 1px solid #1d293b;
-            font-size: 14px;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 700px) {
-            nav {
-                padding: 15px 5%;
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            nav ul {
-                gap: 13px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav ul a {
-                font-size: 12px;
-            }
-
-            section {
-                padding: 85px 6%;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .achievement-card {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .achievement-card img {
-                max-width: 100%;
-                width: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kushagra's personal portfolio — Student and Game Developer.">
+  <title>Kushagra | Student & Game Developer</title>
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --surface: #111827;
+      --surface-light: #172235;
+      --accent: #6ea8ff;
+      --accent-hover: #91bdff;
+      --text: #f1f5f9;
+      --muted: #a0aec0;
+      --border: rgba(255,255,255,0.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(11,15,25,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 70px;
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      color: var(--accent);
+      background: rgba(110,168,255,0.1);
+      border: 1px solid rgba(110,168,255,0.25);
+      border-radius: 30px;
+      padding: 7px 16px;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 23px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #07111f;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 90px 0;
+      scroll-margin-top: 65px;
+    }
+
+    .section-heading {
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 span {
+      color: var(--accent);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    /* ABOUT */
+
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 30px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(110,168,255,0.55);
+    }
+
+    .project-icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .project-card h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .project-description {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .project-type {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .project-role {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+
+    .project-link {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .project-link:hover {
+      color: var(--accent-hover);
+    }
+
+    .future-card {
+      border-style: dashed;
+      justify-content: center;
+      min-height: 240px;
+    }
+
+    /* ACHIEVEMENTS */
+
+    .achievement-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 25px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .achievement-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .achievement-card p {
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .achievement-image {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+    }
+
+    .skill-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: 0.2s;
+    }
+
+    .skill-item[open] {
+      border-color: rgba(110,168,255,0.5);
+    }
+
+    .skill-item summary {
+      padding: 16px;
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .skill-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .skill-item summary::after {
+      content: "+";
+      color: var(--accent);
+      font-size: 20px;
+    }
+
+    .skill-item[open] summary::after {
+      content: "−";
+    }
+
+    .skill-item summary:hover {
+      color: var(--accent);
+    }
+
+    .skill-description {
+      color: var(--muted);
+      font-size: 13px;
+      padding: 0 16px 17px;
+    }
+
+    /* CONTACT */
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 30px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 700px) {
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+
+      .achievement-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+    }
+
+    @media (max-width: 430px) {
+      nav {
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        padding-top: 145px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
+  <!-- NAVBAR -->
 
-    <nav>
-        <div class="logo">Kushagra.</div>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">Kushagra.</a>
 
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-    </nav>
+      </nav>
+    </div>
+  </header>
 
-    <!-- HOME -->
+  <!-- HERO -->
 
-    <section id="home">
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
         <div class="hero-content">
 
-            <h1>
-                Hi, I'm <span class="accent">Kushagra</span>
-            </h1>
+          <div class="hero-tag">
+            Student • Game Developer • Creator
+          </div>
 
-            <h2>Student | Game Developer</h2>
+          <h1>
+            Hi, I'm <span>Kushagra</span>
+          </h1>
 
-            <p>
-                I enjoy programming, developing games, building
-                interactive systems, and turning creative ideas
-                into real projects. Currently exploring game
-                development and Roblox development.
-            </p>
+          <p>
+            I'm a student and aspiring developer interested in game
+            development, programming, technology and building creative
+            digital experiences.
+          </p>
 
-            <a href="#projects" class="btn">
-                Explore My Projects
+          <div class="buttons">
+            <a href="#projects" class="btn btn-primary">
+              Explore My Projects
             </a>
 
             <a href="#contact" class="btn btn-outline">
-                Contact Me
+              Contact Me
             </a>
+          </div>
 
         </div>
+      </div>
     </section>
 
     <!-- ABOUT -->
 
     <section id="about">
+      <div class="container">
 
-        <h2 class="section-title">
-            About <span class="accent">Me</span>
-        </h2>
-
-        <p class="section-subtitle">
-            Get to know me
-        </p>
-
-        <div class="about-content">
-
-            <p>
-                I'm Kushagra, a student and aspiring game developer
-                interested in programming, technology, and game creation.
-                I enjoy experimenting with new ideas and developing
-                interactive experiences, especially through Roblox Studio.
-            </p>
-
-            <br>
-
-            <p>
-                My interests include Lua/Luau scripting, game design,
-                gameplay mechanics, NPC development, and problem solving.
-                I'm continuously learning and working on projects to
-                improve my development skills.
-            </p>
-
+        <div class="section-heading">
+          <h2>About <span>Me</span></h2>
+          <p>A little introduction.</p>
         </div>
+
+        <div class="about-card">
+          <p>
+            Hello! I'm Kushagra, a student passionate about technology,
+            programming and game development.
+          </p>
+
+          <p>
+            I enjoy creating games, experimenting with new ideas,
+            understanding how systems work and solving technical problems.
+          </p>
+
+          <p>
+            My main interest is Roblox game development, where I work
+            with Lua/Luau, gameplay systems, NPCs and game design.
+            I'm continuously learning and improving my development skills.
+          </p>
+        </div>
+
+      </div>
     </section>
 
     <!-- PROJECTS -->
 
     <section id="projects">
+      <div class="container">
 
-        <h2 class="section-title">
-            My <span class="accent">Projects</span>
-        </h2>
+        <div class="section-heading">
+          <h2>My <span>Projects</span></h2>
+          <p>Games and projects I've worked on.</p>
+        </div>
 
-        <p class="section-subtitle">
-            Games and projects I am building and working on.
-        </p>
+        <div class="projects-grid">
 
-        <div class="projects-container">
+          <!-- DEMONBLOX -->
 
-            <!-- GROUND WAR -->
+          <article class="project-card">
+            <div class="project-icon">⚔️</div>
 
-            <div class="project-card">
+            <h3>DemonBlox</h3>
 
-                <span class="project-status">Roblox Game</span>
+            <p class="project-description">
+              A Demon Slayer-inspired Roblox RPG featuring Slayer and
+              Demon factions, combat systems, special abilities, NPCs,
+              exploration, ranks and progression.
+            </p>
 
-                <h3>Ground War</h3>
-
-                <div class="project-type">Developer</div>
-
-                <p>
-                    Ground War is a military-themed Roblox game
-                    focused on warfare, military combat, fighting,
-                    and action-packed battles.
-                </p>
-
-                <a
-                    href="https://www.roblox.com/games/118367369949006/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="project-link">
-                    Play Ground War →
-                </a>
-
+            <div class="project-type">
+              Owner + Developer
             </div>
 
-            <!-- DEMONBLOX -->
-
-            <div class="project-card">
-
-                <span class="project-status">Roblox Game</span>
-
-                <h3>DemonBlox</h3>
-
-                <div class="project-type">Owner + Developer</div>
-
-                <div class="project-role">Solo-developed by me</div>
-
-                <p>
-                    DemonBlox is a Demon Slayer-inspired Roblox RPG
-                    featuring Slayer and Demon factions, combat,
-                    unique abilities, NPCs, exploration, ranks,
-                    and progression. I own this game and develop
-                    it entirely by myself.
-                </p>
-
-                <a
-                    href="https://www.roblox.com/games/108820000286951/DemonBlox"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="project-link">
-                    Play DemonBlox →
-                </a>
-
+            <div class="project-role">
+              Solo-developed by me
             </div>
 
-            <!-- FUTURE PROJECTS -->
+            <a
+              class="project-link"
+              href="https://www.roblox.com/games/108820000286951/DemonBlox"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on Roblox →
+            </a>
+          </article>
 
-            <div class="project-card">
+          <!-- GROUND WAR -->
 
-                <span class="project-status">Coming Soon</span>
+          <article class="project-card">
+            <div class="project-icon">🎖️</div>
 
-                <h3>Future Projects</h3>
+            <h3>Ground War</h3>
 
-                <p>
-                    Exploring new ideas in game development,
-                    programming, interactive systems, and other
-                    technology-based projects. More projects
-                    coming soon.
-                </p>
+            <p class="project-description">
+              A military-themed Roblox game featuring combat,
+              action-packed battles and military gameplay.
+            </p>
 
-                <span class="project-link">In Development</span>
-
+            <div class="project-type">
+              Developer
             </div>
+
+            <a
+              class="project-link"
+              href="https://www.roblox.com/games/118367369949006/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View on Roblox →
+            </a>
+          </article>
+
+          <!-- FUTURE PROJECTS -->
+
+          <article class="project-card future-card">
+            <div class="project-icon">🚀</div>
+
+            <h3>Future Projects</h3>
+
+            <p class="project-description">
+              More creative projects, games and experiments are
+              coming soon. Stay tuned!
+            </p>
+          </article>
 
         </div>
+      </div>
     </section>
 
     <!-- ACHIEVEMENTS -->
 
     <section id="achievements">
+      <div class="container">
 
-        <h2 class="section-title">
-            My <span class="accent">Achievements</span>
-        </h2>
-
-        <p class="section-subtitle">
-            A milestone from my journey.
-        </p>
+        <div class="section-heading">
+          <h2>My <span>Achievements</span></h2>
+          <p>Some milestones from my journey.</p>
+        </div>
 
         <div class="achievement-card">
 
+          <div>
+            <h3>🏆 2nd Prize — Game Making Competition 2025</h3>
+
+            <p>
+              Participated in a game-making competition at
+              NC Jindal Public School.
+            </p>
+
+            <p>
+              Achieved 2nd place as part of a three-member team.
+            </p>
+
+            <p>
+              The experience helped me develop my creativity,
+              teamwork and game development skills.
+            </p>
+          </div>
+
+          <div>
             <img
-                src="coder.png"
-                alt="Game Making Competition achievement">
+              src="coder.png"
+              alt="Game Making Competition achievement"
+              class="achievement-image"
+            >
+          </div>
 
-            <div class="achievement-info">
-
-                <h3>
-                    🏆 2nd Prize — Game Making Competition 2025
-                </h3>
-
-                <p>
-                    Secured second position in a Game Making
-                    Competition at NC Jindal Public School in 2025.
-                </p>
-
-                <br>
-
-                <p>
-                    Participated as part of a three-member team,
-                    contributing to the coding and development
-                    of the game.
-                </p>
-
-            </div>
         </div>
+      </div>
     </section>
 
     <!-- SKILLS -->
 
     <section id="skills">
+      <div class="container">
 
-        <h2 class="section-title">
-            My <span class="accent">Skills</span>
-        </h2>
+        <div class="section-heading">
+          <h2>My <span>Skills</span></h2>
+          <p>Click on any skill to learn more about it.</p>
+        </div>
 
-        <p class="section-subtitle">
-            Technologies and areas I am learning and working with.
-            Click on any skill to learn more.
-        </p>
+        <div class="skills-grid">
 
-        <div class="skills-container">
+          <details class="skill-item">
+            <summary>Game Development</summary>
+            <p class="skill-description">
+              Creating interactive games, developing mechanics,
+              building gameplay experiences and improving game systems.
+            </p>
+          </details>
 
-            <details class="skill-item">
-                <summary>Game Development</summary>
-                <p class="skill-description">
-                    Learning how to create complete games, develop
-                    gameplay features, test mechanics, and improve
-                    the overall player experience.
-                </p>
-            </details>
+          <details class="skill-item">
+            <summary>Roblox Development</summary>
+            <p class="skill-description">
+              Developing Roblox experiences using Roblox Studio,
+              including environments, gameplay features and scripts.
+            </p>
+          </details>
 
-            <details class="skill-item">
-                <summary>Roblox Development</summary>
-                <p class="skill-description">
-                    Creating Roblox experiences using Roblox Studio,
-                    scripts, game assets, maps, and interactive systems.
-                </p>
-            </details>
+          <details class="skill-item">
+            <summary>Lua / Luau</summary>
+            <p class="skill-description">
+              Using Lua and Luau for Roblox scripting, game mechanics,
+              interactive objects and gameplay logic.
+            </p>
+          </details>
 
-            <details class="skill-item">
-                <summary>Coding</summary>
-                <p class="skill-description">
-                    Writing code to build features, create interactions,
-                    solve problems, and turn ideas into working projects.
-                </p>
-            </details>
+          <details class="skill-item">
+            <summary>Programming</summary>
+            <p class="skill-description">
+              Understanding programming concepts, logical thinking,
+              writing code and building software-based solutions.
+            </p>
+          </details>
 
-            <details class="skill-item">
-                <summary>Lua / Luau Scripting</summary>
-                <p class="skill-description">
-                    Using Lua and Roblox Luau to develop gameplay
-                    features, player abilities, combat mechanics,
-                    tools, events, and interactive systems.
-                </p>
-            </details>
+          <details class="skill-item">
+            <summary>Coding</summary>
+            <p class="skill-description">
+              Practising coding, understanding algorithms and
+              developing solutions through programming.
+            </p>
+          </details>
 
-            <details class="skill-item">
-                <summary>Programming</summary>
-                <p class="skill-description">
-                    Understanding programming logic, breaking problems
-                    into smaller steps, and developing solutions through code.
-                </p>
-            </details>
+          <details class="skill-item">
+            <summary>Game Design</summary>
+            <p class="skill-description">
+              Designing game environments, player experiences,
+              progression systems and engaging gameplay mechanics.
+            </p>
+          </details>
 
-            <details class="skill-item">
-                <summary>Game Design</summary>
-                <p class="skill-description">
-                    Planning game mechanics, maps, rules, challenges,
-                    progression systems, and interactive experiences
-                    for players.
-                </p>
-            </details>
+          <details class="skill-item">
+            <summary>Problem Solving</summary>
+            <p class="skill-description">
+              Analysing problems, finding solutions and improving
+              systems through logical thinking.
+            </p>
+          </details>
 
-            <details class="skill-item">
-                <summary>Problem Solving</summary>
-                <p class="skill-description">
-                    Identifying problems, understanding their causes,
-                    thinking through possible solutions, and finding
-                    practical ways to resolve them.
-                </p>
-            </details>
+          <details class="skill-item">
+            <summary>Creative Thinking</summary>
+            <p class="skill-description">
+              Generating new ideas and turning concepts into
+              interesting projects and experiences.
+            </p>
+          </details>
 
-            <details class="skill-item">
-                <summary>Creative Thinking</summary>
-                <p class="skill-description">
-                    Coming up with original ideas, exploring different
-                    approaches, and finding interesting ways to design
-                    games and features.
-                </p>
-            </details>
+          <details class="skill-item">
+            <summary>Teamwork</summary>
+            <p class="skill-description">
+              Collaborating with others, sharing ideas and
+              contributing towards common project goals.
+            </p>
+          </details>
 
-            <details class="skill-item">
-                <summary>Teamwork</summary>
-                <p class="skill-description">
-                    Working with others, sharing ideas, communicating
-                    clearly, and contributing towards a common project goal.
-                </p>
-            </details>
+          <details class="skill-item">
+            <summary>Debugging</summary>
+            <p class="skill-description">
+              Identifying script errors, investigating unexpected
+              behaviour and fixing problems in projects.
+            </p>
+          </details>
 
-            <details class="skill-item">
-                <summary>Debugging</summary>
-                <p class="skill-description">
-                    Finding and fixing errors in scripts and game
-                    systems to improve reliability and make projects
-                    work correctly.
-                </p>
-            </details>
+          <details class="skill-item">
+            <summary>Gameplay Systems</summary>
+            <p class="skill-description">
+              Working on combat, progression, rewards, player
+              interactions and other gameplay mechanics.
+            </p>
+          </details>
 
-            <details class="skill-item">
-                <summary>Gameplay Systems</summary>
-                <p class="skill-description">
-                    Developing systems such as combat, abilities,
-                    health, rewards, ranks, leaderboards, and
-                    player progression.
-                </p>
-            </details>
-
-            <details class="skill-item">
-                <summary>NPC Development</summary>
-                <p class="skill-description">
-                    Creating non-player characters with movement,
-                    behaviours, interactions, and AI-driven actions
-                    that make game worlds feel more alive.
-                </p>
-            </details>
+          <details class="skill-item">
+            <summary>NPC Development</summary>
+            <p class="skill-description">
+              Developing non-player character behaviour,
+              interactions, enemy logic and AI-based gameplay features.
+            </p>
+          </details>
 
         </div>
+      </div>
     </section>
 
     <!-- CONTACT -->
 
     <section id="contact">
+      <div class="container">
 
-        <h2 class="section-title">
-            Get In <span class="accent">Touch</span>
-        </h2>
-
-        <p class="section-subtitle">
-            Feel free to connect with me.
-        </p>
-
-        <div class="contact-content">
-
-            <p>
-                Interested in game development, programming,
-                or collaborating on projects? You can find me here.
-            </p>
-
-            <div class="contact-links">
-
-                <a
-                    href="https://github.com/kushagrajeets-sys"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    GitHub
-                </a>
-
-                <a
-                    href="https://www.roblox.com/users/11788899475/profile"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Roblox Profile
-                </a>
-
-                <button onclick="copyDiscord()">
-                    Copy Discord Username
-                </button>
-
-            </div>
-
-            <p style="margin-top: 20px;">
-                Discord:
-                <span class="accent">kushagra_2012</span>
-            </p>
-
-            <p id="copy-message" aria-live="polite"></p>
-
+        <div class="section-heading">
+          <h2>Get In <span>Touch</span></h2>
+          <p>Let's connect and share ideas.</p>
         </div>
+
+        <div class="contact-card">
+          <p>
+            Interested in game development, technology or collaboration?
+            Feel free to connect with me.
+          </p>
+
+          <div class="contact-links">
+
+            <a
+              href="https://github.com/kushagrajeets-sys"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline"
+            >
+              GitHub
+            </a>
+
+            <a
+              href="https://www.roblox.com/users/11788899475/profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline"
+            >
+              Roblox Profile
+            </a>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="discordButton"
+            >
+              Copy Discord Username
+            </button>
+
+          </div>
+
+          <p id="copyMessage" aria-live="polite" style="margin-top: 15px;"></p>
+        </div>
+
+      </div>
     </section>
 
-    <!-- FOOTER -->
+  </main>
 
-    <footer>
-        <p>© 2026 Kushagra. All Rights Reserved.</p>
-        <p>Designed and developed by Kushagra.</p>
-    </footer>
+  <!-- FOOTER -->
 
-    <!-- JAVASCRIPT -->
+  <footer>
+    <div class="container">
+      <p>© 2026 Kushagra. All rights reserved.</p>
+      <p>Designed and developed with passion.</p>
+    </div>
+  </footer>
 
-    <script>
-        function copyDiscord() {
-            const username = "kushagra_2012";
-            const message = document.getElementById("copy-message");
+  <!-- JAVASCRIPT -->
 
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(username)
-                    .then(() => {
-                        message.textContent =
-                            "Discord username copied!";
-                    })
-                    .catch(() => {
-                        message.textContent =
-                            "Copy failed. Username: " + username;
-                    });
-            } else {
-                const textArea = document.createElement("textarea");
-                textArea.value = username;
-                textArea.style.position = "fixed";
-                textArea.style.opacity = "0";
+  <script>
+    // Copy Discord username
 
-                document.body.appendChild(textArea);
-                textArea.select();
+    const discordButton = document.getElementById("discordButton");
+    const copyMessage = document.getElementById("copyMessage");
 
-                try {
-                    document.execCommand("copy");
-                    message.textContent =
-                        "Discord username copied!";
-                } catch (error) {
-                    message.textContent =
-                        "Username: " + username;
-                }
+    discordButton.addEventListener("click", async () => {
+      const username = "kushagra_2012";
 
-                textArea.remove();
+      try {
+        await navigator.clipboard.writeText(username);
+        copyMessage.textContent = "Discord username copied: " + username;
+      } catch (error) {
+        copyMessage.textContent = "Discord username: " + username;
+      }
+    });
+
+    // Keep only one skill description open at a time
+
+    const skillItems = document.querySelectorAll(".skill-item");
+
+    skillItems.forEach((item) => {
+      item.addEventListener("toggle", () => {
+        if (item.open) {
+          skillItems.forEach((otherItem) => {
+            if (otherItem !== item) {
+              otherItem.open = false;
             }
+          });
         }
-
-        // Allow only one skill description to stay open.
-        const skillItems = document.querySelectorAll(".skill-item");
-
-        skillItems.forEach((skill) => {
-            skill.addEventListener("toggle", () => {
-                if (skill.open) {
-                    skillItems.forEach((otherSkill) => {
-                        if (otherSkill !== skill) {
-                            otherSkill.open = false;
-                        }
-                    });
-                }
-            });
-        });
-    </script>
+      });
+    });
+  </script>
 
 </body>
 </html>
