@@ -18,7 +18,7 @@
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background: #0b0f19;
-            color: #ffffff;
+            color: #fff;
             line-height: 1.6;
         }
 
@@ -27,7 +27,7 @@
             color: inherit;
         }
 
-        /* NAVIGATION */
+        /* NAVBAR */
 
         nav {
             position: fixed;
@@ -65,7 +65,7 @@
             color: #6ea8ff;
         }
 
-        /* COMMON */
+        /* GENERAL */
 
         section {
             padding: 100px 10%;
@@ -139,7 +139,7 @@
         }
 
         .btn:hover {
-            background: #ffffff;
+            background: #fff;
             transform: translateY(-3px);
         }
 
@@ -205,6 +205,16 @@
             margin: 16px 0 20px;
         }
 
+        .project-status {
+            display: inline-block;
+            color: #a8caff;
+            background: #1c3150;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
         .project-type {
             color: #d6e5ff;
             font-size: 13px;
@@ -223,17 +233,7 @@
         }
 
         .project-link:hover {
-            color: #ffffff;
-        }
-
-        .project-status {
-            display: inline-block;
-            color: #a8caff;
-            background: #1c3150;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            margin-bottom: 15px;
+            color: #fff;
         }
 
         /* ACHIEVEMENTS */
@@ -296,7 +296,7 @@
             padding: 19px;
             cursor: pointer;
             font-weight: 650;
-            color: #ffffff;
+            color: #fff;
             list-style: none;
             display: flex;
             justify-content: space-between;
@@ -385,7 +385,7 @@
             font-size: 14px;
         }
 
-        /* MOBILE RESPONSIVE */
+        /* MOBILE */
 
         @media (max-width: 700px) {
             nav {
@@ -518,7 +518,7 @@
 
         <div class="projects-container">
 
-            <!-- GROUND WAR -->
+            <!-- GROUND WAR: DEVELOPER ONLY -->
 
             <div class="project-card">
 
@@ -534,9 +534,8 @@
 
                 <p>
                     Ground War is a military-themed Roblox game
-                    focused on warfare, combat, and fighting.
-                    Experience action-packed military battles
-                    and intense gameplay.
+                    focused on warfare, military combat, fighting,
+                    and action-packed battles.
                 </p>
 
                 <a
@@ -549,7 +548,7 @@
 
             </div>
 
-            <!-- DEMONBLOX -->
+            <!-- DEMONBLOX: OWNER + DEVELOPER -->
 
             <div class="project-card">
 
@@ -560,15 +559,19 @@
                 <h3>DemonBlox</h3>
 
                 <div class="project-type">
-                    Owner + Solo Developer
+                    Owner + Developer
+                </div>
+
+                <div class="project-role">
+                    Solo-developed by me
                 </div>
 
                 <p>
                     DemonBlox is a Demon Slayer-inspired Roblox RPG
                     featuring Slayer and Demon factions, combat,
                     unique abilities, NPCs, exploration, ranks,
-                    and progression. I am the owner and developing
-                    the entire game independently.
+                    and progression. I own this game and develop
+                    it entirely by myself.
                 </p>
 
                 <a
@@ -645,6 +648,7 @@
                 </p>
 
             </div>
+
         </div>
     </section>
 
@@ -807,24 +811,18 @@
     <!-- FOOTER -->
 
     <footer>
-
         <p>© 2026 Kushagra. All Rights Reserved.</p>
-
         <p>Designed and developed by Kushagra.</p>
-
     </footer>
 
     <!-- JAVASCRIPT -->
 
     <script>
-
         function copyDiscord() {
-
             const username = "kushagra_2012";
             const message = document.getElementById("copy-message");
 
             if (navigator.clipboard && window.isSecureContext) {
-
                 navigator.clipboard.writeText(username)
                     .then(() => {
                         message.textContent =
@@ -834,11 +832,8 @@
                         message.textContent =
                             "Copy failed. Username: " + username;
                     });
-
             } else {
-
                 const textArea = document.createElement("textarea");
-
                 textArea.value = username;
                 textArea.style.position = "fixed";
                 textArea.style.opacity = "0";
@@ -848,12 +843,9 @@
 
                 try {
                     document.execCommand("copy");
-
                     message.textContent =
                         "Discord username copied!";
-
                 } catch (error) {
-
                     message.textContent =
                         "Username: " + username;
                 }
@@ -862,30 +854,20 @@
             }
         }
 
-        // Keep only one skill description open at a time.
-
+        // Only one skill description stays open at a time.
         const skillItems = document.querySelectorAll(".skill-item");
 
         skillItems.forEach((skill) => {
-
             skill.addEventListener("toggle", () => {
-
                 if (skill.open) {
-
                     skillItems.forEach((otherSkill) => {
-
                         if (otherSkill !== skill) {
                             otherSkill.open = false;
                         }
-
                     });
-
                 }
-
             });
-
         });
-
     </script>
 
 </body>
