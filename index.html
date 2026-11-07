@@ -27,8 +27,6 @@
             color: inherit;
         }
 
-        /* NAVBAR */
-
         nav {
             position: fixed;
             top: 0;
@@ -37,7 +35,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(11, 15, 25, 0.95);
+            background: rgba(11, 15, 25, 0.96);
             backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: 1px solid #1d293b;
@@ -65,8 +63,6 @@
             color: #6ea8ff;
         }
 
-        /* GENERAL */
-
         section {
             padding: 100px 10%;
             scroll-margin-top: 65px;
@@ -88,7 +84,7 @@
             color: #6ea8ff;
         }
 
-        /* HOME */
+        /* HERO */
 
         #home {
             min-height: 100vh;
@@ -518,19 +514,15 @@
 
         <div class="projects-container">
 
-            <!-- GROUND WAR: DEVELOPER ONLY -->
+            <!-- GROUND WAR -->
 
             <div class="project-card">
 
-                <span class="project-status">
-                    Roblox Game
-                </span>
+                <span class="project-status">Roblox Game</span>
 
                 <h3>Ground War</h3>
 
-                <div class="project-type">
-                    Developer
-                </div>
+                <div class="project-type">Developer</div>
 
                 <p>
                     Ground War is a military-themed Roblox game
@@ -548,23 +540,17 @@
 
             </div>
 
-            <!-- DEMONBLOX: OWNER + DEVELOPER -->
+            <!-- DEMONBLOX -->
 
             <div class="project-card">
 
-                <span class="project-status">
-                    Roblox Game
-                </span>
+                <span class="project-status">Roblox Game</span>
 
                 <h3>DemonBlox</h3>
 
-                <div class="project-type">
-                    Owner + Developer
-                </div>
+                <div class="project-type">Owner + Developer</div>
 
-                <div class="project-role">
-                    Solo-developed by me
-                </div>
+                <div class="project-role">Solo-developed by me</div>
 
                 <p>
                     DemonBlox is a Demon Slayer-inspired Roblox RPG
@@ -588,9 +574,7 @@
 
             <div class="project-card">
 
-                <span class="project-status">
-                    Coming Soon
-                </span>
+                <span class="project-status">Coming Soon</span>
 
                 <h3>Future Projects</h3>
 
@@ -601,9 +585,7 @@
                     coming soon.
                 </p>
 
-                <span class="project-link">
-                    In Development
-                </span>
+                <span class="project-link">In Development</span>
 
             </div>
 
@@ -648,7 +630,6 @@
                 </p>
 
             </div>
-
         </div>
     </section>
 
@@ -724,6 +705,23 @@
                     Identifying problems, understanding their causes,
                     thinking through possible solutions, and finding
                     practical ways to resolve them.
+                </p>
+            </details>
+
+            <details class="skill-item">
+                <summary>Creative Thinking</summary>
+                <p class="skill-description">
+                    Coming up with original ideas, exploring different
+                    approaches, and finding interesting ways to design
+                    games and features.
+                </p>
+            </details>
+
+            <details class="skill-item">
+                <summary>Teamwork</summary>
+                <p class="skill-description">
+                    Working with others, sharing ideas, communicating
+                    clearly, and contributing towards a common project goal.
                 </p>
             </details>
 
@@ -854,7 +852,7 @@
             }
         }
 
-        // Only one skill description stays open at a time.
+        // Allow only one skill description to stay open.
         const skillItems = document.querySelectorAll(".skill-item");
 
         skillItems.forEach((skill) => {
