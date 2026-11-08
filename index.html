@@ -41,7 +41,7 @@
       isolation: isolate;
     }
 
-    /* FULL-PAGE SNOWFALL VIDEO BACKGROUND */
+    /* FULL-PAGE SNOWFALL VIDEO */
 
     .background-video {
       position: fixed;
@@ -201,6 +201,7 @@
       transition: 0.25s;
       cursor: pointer;
       border: 1px solid var(--border);
+      font-family: inherit;
     }
 
     .btn-primary {
@@ -434,6 +435,100 @@
       gap: 12px;
     }
 
+    /* MUSIC PLAYER */
+
+    .music-player {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 200;
+      width: min(290px, calc(100vw - 32px));
+      padding: 16px;
+      border: 1px solid rgba(110,168,255,0.3);
+      border-radius: 15px;
+      background: rgba(8, 15, 30, 0.92);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+    }
+
+    .music-heading {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .music-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(110,168,255,0.15);
+      font-size: 19px;
+    }
+
+    .music-info {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .music-info strong {
+      display: block;
+      font-size: 12px;
+      color: var(--text);
+    }
+
+    .music-info span {
+      display: block;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .music-button {
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      background: var(--blue);
+      color: #08111f;
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .music-button:hover {
+      background: #a8ccff;
+    }
+
+    .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .volume-control label {
+      color: var(--muted);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .volume-control input {
+      width: 100%;
+      accent-color: var(--blue);
+      cursor: pointer;
+    }
+
+    .music-status {
+      color: var(--muted);
+      font-size: 10px;
+      margin-top: 9px;
+      text-align: center;
+    }
+
     /* FOOTER */
 
     footer {
@@ -496,17 +591,59 @@
       .nav-links a {
         font-size: 11px;
       }
+
+      .music-player {
+        right: 12px;
+        bottom: 12px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- FULL-PAGE VIDEO BACKGROUND -->
+  <!-- FULL-PAGE SNOWFALL VIDEO BACKGROUND -->
   <video class="background-video" autoplay muted loop playsinline aria-hidden="true">
     <source src="Mai-Sakurajima%20with%20Snowball_HN%20Studio-%28H%C3%B9ng_Nguy%E1%BB%85n%29.mp4" type="video/mp4">
   </video>
+
   <div class="background-overlay"></div>
+
+  <!-- BACKGROUND MUSIC -->
+  <audio id="backgroundMusic" loop preload="none">
+    <source src="snowfall.mp3.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- MUSIC PLAYER -->
+  <div class="music-player">
+    <div class="music-heading">
+      <div class="music-icon">❄️</div>
+      <div class="music-info">
+        <strong>Snowfall</strong>
+        <span>Background Music</span>
+      </div>
+    </div>
+
+    <button class="music-button" id="musicToggle" type="button">
+      ▶ Enable Music
+    </button>
+
+    <div class="volume-control">
+      <label for="volumeSlider">Volume</label>
+      <input
+        type="range"
+        id="volumeSlider"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.35"
+      >
+    </div>
+
+    <p class="music-status" id="musicStatus" aria-live="polite">
+      Music is currently off
+    </p>
+  </div>
 
   <!-- NAVBAR -->
   <nav>
@@ -524,8 +661,9 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <main>
+
+    <!-- HERO -->
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-content">
@@ -604,13 +742,16 @@
             <h3>DemonBlox</h3>
             <div class="project-type">Roblox Game</div>
             <span class="project-role">Owner + Developer</span>
+
             <p class="project-description">
               A Demon Slayer-inspired Roblox RPG featuring Slayer and Demon
               factions, combat systems, unique environments, NPCs and progression.
             </p>
+
             <p class="project-description">
               Solo-developed by me.
             </p>
+
             <a class="project-link"
                href="https://www.roblox.com/games/108820000286951/DemonBlox"
                target="_blank" rel="noopener noreferrer">
@@ -623,10 +764,12 @@
             <div class="project-icon">🎖️</div>
             <h3>Ground War</h3>
             <div class="project-type">Developer</div>
+
             <p class="project-description">
               A Roblox military warfare and combat game focused on battles,
               teamwork and an immersive gameplay experience.
             </p>
+
             <a class="project-link"
                href="https://www.roblox.com/games/118367369949006/"
                target="_blank" rel="noopener noreferrer">
@@ -639,6 +782,7 @@
             <div class="project-icon">🚀</div>
             <h3>Future Projects</h3>
             <div class="project-type">Coming Soon</div>
+
             <p class="project-description">
               More creative projects, game development experiments and
               technology-based ideas are currently in the works.
@@ -653,6 +797,7 @@
     <section id="achievements">
       <div class="container">
         <h2 class="section-title">My <span class="accent">Achievements</span></h2>
+
         <p class="section-subtitle">
           Some milestones and experiences I'm proud of.
         </p>
@@ -662,10 +807,12 @@
 
           <div>
             <h3>🏆 2nd Prize — Game Making Competition 2025</h3>
+
             <p>
               Secured second prize in a Game Making Competition held at
               N C Jindal Public School.
             </p>
+
             <p>
               Participated as part of a three-member team, collaborating
               to create and present a game project.
@@ -679,6 +826,7 @@
     <section id="skills">
       <div class="container">
         <h2 class="section-title">My <span class="accent">Skills</span></h2>
+
         <p class="section-subtitle">
           Technologies and areas I'm learning and working with.
           Click on a skill to learn more.
@@ -783,6 +931,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- FOOTER -->
@@ -794,7 +943,8 @@
   </footer>
 
   <script>
-    // Allow only one skill to remain open at a time.
+    // ONE SKILL OPEN AT A TIME
+
     const skills = document.querySelectorAll("details.skill");
 
     skills.forEach((skill) => {
@@ -809,7 +959,8 @@
       });
     });
 
-    // Copy Discord username.
+    // DISCORD USERNAME COPY BUTTON
+
     const discordButton = document.getElementById("discordButton");
     const copyMessage = document.getElementById("copyMessage");
 
@@ -822,6 +973,44 @@
       } catch (error) {
         copyMessage.textContent = "Discord username: " + username;
       }
+    });
+
+    // BACKGROUND MUSIC PLAYER
+
+    const music = document.getElementById("backgroundMusic");
+    const musicToggle = document.getElementById("musicToggle");
+    const musicStatus = document.getElementById("musicStatus");
+    const volumeSlider = document.getElementById("volumeSlider");
+
+    music.volume = Number(volumeSlider.value);
+
+    musicToggle.addEventListener("click", async () => {
+      if (music.paused) {
+        try {
+          await music.play();
+          musicToggle.textContent = "❚❚ Pause Music";
+          musicStatus.textContent = "Now playing • Snowfall";
+        } catch (error) {
+          musicStatus.textContent = "Music could not load. Check the audio file.";
+        }
+      } else {
+        music.pause();
+        musicToggle.textContent = "▶ Enable Music";
+        musicStatus.textContent = "Music is currently off";
+      }
+    });
+
+    volumeSlider.addEventListener("input", () => {
+      music.volume = Number(volumeSlider.value);
+    });
+
+    music.addEventListener("ended", () => {
+      musicToggle.textContent = "▶ Enable Music";
+      musicStatus.textContent = "Music is currently off";
+    });
+
+    music.addEventListener("error", () => {
+      musicStatus.textContent = "Audio file could not be found.";
     });
   </script>
 
