@@ -4,19 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kushagra's personal portfolio — Student and Game Developer.">
-  <title>Kushagra | Student & Game Developer</title>
+  <meta name="theme-color" content="#080d19">
+  <meta name="description" content="Kushagra Jeet Singh - Developer, Roblox Game Developer and Creator.">
+  <title>Kushagra Jeet Singh | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0b0f19;
-      --surface: #111827;
-      --surface-light: #172235;
-      --accent: #6ea8ff;
-      --accent-hover: #91bdff;
-      --text: #f1f5f9;
-      --muted: #a0aec0;
-      --border: rgba(255,255,255,0.09);
+      --bg: #080d19;
+      --card: rgba(14, 23, 41, 0.76);
+      --card-hover: rgba(23, 36, 61, 0.88);
+      --blue: #6ea8ff;
+      --blue-light: #a8ccff;
+      --text: #f3f6fc;
+      --muted: #a2aec2;
+      --border: rgba(148, 175, 220, 0.16);
     }
 
     * {
@@ -27,19 +32,38 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
+      overflow-x: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    /* FULL-PAGE SNOWFALL VIDEO BACKGROUND */
+
+    .background-video {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .background-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 10, 22, 0.76);
+      z-index: -1;
+      pointer-events: none;
     }
 
     a {
       color: inherit;
       text-decoration: none;
-    }
-
-    button {
-      font: inherit;
     }
 
     .container {
@@ -49,337 +73,365 @@
 
     /* NAVBAR */
 
-    header {
-      position: fixed;
+    nav {
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(11,15,25,0.92);
-      backdrop-filter: blur(12px);
+      z-index: 100;
+      background: rgba(7, 12, 24, 0.88);
+      backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
 
-    nav {
+    .nav-content {
       min-height: 72px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      gap: 20px;
     }
 
     .logo {
-      font-size: 23px;
+      font-size: 21px;
       font-weight: 800;
-      color: var(--accent);
+      color: var(--blue-light);
+      letter-spacing: -1px;
     }
 
     .nav-links {
       display: flex;
       gap: 25px;
-      list-style: none;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
       color: var(--muted);
-      font-size: 14px;
-      transition: 0.2s;
+      font-size: 13px;
+      font-weight: 600;
+      transition: 0.25s;
     }
 
     .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 120px 0 70px;
-    }
-
-    .hero-content {
-      max-width: 750px;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      color: var(--accent);
-      background: rgba(110,168,255,0.1);
-      border: 1px solid rgba(110,168,255,0.25);
-      border-radius: 30px;
-      padding: 7px 16px;
-      font-size: 13px;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 {
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 1.1;
-      margin-bottom: 18px;
-    }
-
-    .hero h1 span {
-      color: var(--accent);
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 650px;
-      margin-bottom: 30px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 23px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 14px;
-      transition: 0.2s;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #07111f;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      color: var(--blue);
     }
 
     /* GENERAL SECTIONS */
 
     section {
-      padding: 90px 0;
-      scroll-margin-top: 65px;
+      padding: 95px 0;
+      scroll-margin-top: 70px;
     }
 
-    .section-heading {
-      margin-bottom: 35px;
+    .section-title {
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -1.2px;
     }
 
-    .section-heading h2 {
-      font-size: 34px;
-      margin-bottom: 8px;
-    }
-
-    .section-heading h2 span {
-      color: var(--accent);
-    }
-
-    .section-heading p {
+    .section-subtitle {
       color: var(--muted);
+      margin-bottom: 35px;
+      max-width: 650px;
+    }
+
+    .accent {
+      color: var(--blue);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 90px 0;
+    }
+
+    .hero-content {
+      max-width: 780px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      border: 1px solid rgba(110, 168, 255, 0.35);
+      background: rgba(55, 105, 180, 0.15);
+      color: var(--blue-light);
+      padding: 7px 15px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 1.12;
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      color: var(--blue-light);
+      font-size: clamp(19px, 3vw, 25px);
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.25s;
+      cursor: pointer;
+      border: 1px solid var(--border);
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #08111f;
+      border-color: var(--blue);
+    }
+
+    .btn-primary:hover {
+      background: #9bc4ff;
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(110,168,255,0.14);
+      border-color: var(--blue);
+      transform: translateY(-3px);
+    }
+
+    /* CARDS */
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 25px;
+      backdrop-filter: blur(12px);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: var(--card-hover);
+      border-color: rgba(110,168,255,0.4);
     }
 
     /* ABOUT */
 
-    .about-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 30px;
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 22px;
     }
 
-    .about-card p {
+    .about-text {
       color: var(--muted);
+      font-size: 15px;
+    }
+
+    .about-text p + p {
+      margin-top: 15px;
+    }
+
+    .info-card h3 {
+      color: var(--blue-light);
       margin-bottom: 15px;
     }
 
-    .about-card p:last-child {
-      margin-bottom: 0;
+    .info-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 9px 0;
     }
 
     /* PROJECTS */
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 22px;
     }
 
     .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 25px;
       display: flex;
       flex-direction: column;
-      transition: 0.25s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(110,168,255,0.55);
+      min-height: 270px;
     }
 
     .project-icon {
-      font-size: 30px;
-      margin-bottom: 15px;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: rgba(110,168,255,0.14);
+      font-size: 23px;
+      margin-bottom: 17px;
     }
 
     .project-card h3 {
       font-size: 21px;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
+    }
+
+    .project-type {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .project-role {
+      display: inline-block;
+      width: fit-content;
+      color: var(--blue-light);
+      background: rgba(110,168,255,0.12);
+      border: 1px solid rgba(110,168,255,0.2);
+      border-radius: 6px;
+      padding: 4px 9px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 12px;
     }
 
     .project-description {
       color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 18px;
-      flex-grow: 1;
-    }
-
-    .project-type {
-      color: var(--accent);
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
-
-    .project-role {
-      color: var(--muted);
-      font-size: 12px;
-      margin-bottom: 18px;
+      font-size: 13px;
+      margin-bottom: 20px;
+      flex: 1;
     }
 
     .project-link {
-      display: inline-block;
-      color: var(--accent);
-      font-size: 14px;
+      color: var(--blue-light);
+      font-size: 13px;
       font-weight: 700;
     }
 
     .project-link:hover {
-      color: var(--accent-hover);
-    }
-
-    .future-card {
-      border-style: dashed;
-      justify-content: center;
-      min-height: 240px;
+      text-decoration: underline;
     }
 
     /* ACHIEVEMENTS */
 
     .achievement-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 25px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 180px 1fr;
       gap: 25px;
       align-items: center;
     }
 
+    .achievement-card img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
     .achievement-card h3 {
-      font-size: 21px;
-      margin-bottom: 10px;
+      font-size: 20px;
+      margin-bottom: 8px;
     }
 
     .achievement-card p {
       color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .achievement-image {
-      width: 100%;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      display: block;
+      font-size: 14px;
     }
 
     /* SKILLS */
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
 
-    .skill-item {
-      background: var(--surface);
+    details.skill {
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      transition: 0.2s;
+      border-radius: 12px;
+      padding: 17px;
+      backdrop-filter: blur(10px);
+      transition: 0.25s;
     }
 
-    .skill-item[open] {
+    details.skill[open] {
       border-color: rgba(110,168,255,0.5);
+      background: var(--card-hover);
     }
 
-    .skill-item summary {
-      padding: 16px;
-      cursor: pointer;
-      font-weight: 700;
+    details.skill summary {
       list-style: none;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      gap: 10px;
     }
 
-    .skill-item summary::-webkit-details-marker {
+    details.skill summary::-webkit-details-marker {
       display: none;
     }
 
-    .skill-item summary::after {
-      content: "+";
-      color: var(--accent);
-      font-size: 20px;
+    details.skill summary::after {
+      content: '+';
+      color: var(--blue);
+      font-size: 18px;
     }
 
-    .skill-item[open] summary::after {
-      content: "−";
+    details.skill[open] summary::after {
+      content: '−';
     }
 
-    .skill-item summary:hover {
-      color: var(--accent);
-    }
-
-    .skill-description {
+    details.skill p {
       color: var(--muted);
-      font-size: 13px;
-      padding: 0 16px 17px;
+      font-size: 12px;
+      margin-top: 12px;
     }
 
     /* CONTACT */
 
     .contact-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 30px;
+      text-align: center;
+      padding: 45px 25px;
     }
 
     .contact-card p {
       color: var(--muted);
-      margin-bottom: 22px;
+      max-width: 570px;
+      margin: 12px auto 25px;
     }
 
-    .contact-links {
+    .contact-buttons {
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 13px;
+      gap: 12px;
     }
 
     /* FOOTER */
@@ -389,30 +441,42 @@
       padding: 25px 0;
       text-align: center;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
+      background: rgba(5,10,20,0.5);
     }
 
     /* RESPONSIVE */
 
-    @media (max-width: 700px) {
+    @media (max-width: 750px) {
+      .nav-content {
+        padding: 15px 0;
+        flex-direction: column;
+      }
+
       .nav-links {
-        gap: 12px;
+        justify-content: center;
+        gap: 14px;
       }
 
-      .nav-links a {
-        font-size: 12px;
+      .about-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
       }
 
-      .logo {
-        font-size: 19px;
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .achievement-card {
         grid-template-columns: 1fr;
       }
 
-      .hero p {
-        font-size: 16px;
+      .achievement-card img {
+        max-width: 220px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
       }
 
       section {
@@ -421,20 +485,16 @@
     }
 
     @media (max-width: 430px) {
-      nav {
-        flex-direction: column;
-        justify-content: center;
-        gap: 8px;
-        padding: 12px 0;
+      .skills-grid {
+        grid-template-columns: 1fr;
       }
 
       .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
+        gap: 10px;
       }
 
-      .hero {
-        padding-top: 145px;
+      .nav-links a {
+        font-size: 11px;
       }
     }
   </style>
@@ -442,170 +502,146 @@
 
 <body>
 
+  <!-- FULL-PAGE VIDEO BACKGROUND -->
+  <video class="background-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="Mai-Sakurajima%20with%20Snowball_HN%20Studio-%28H%C3%B9ng_Nguy%E1%BB%85n%29.mp4" type="video/mp4">
+  </video>
+  <div class="background-overlay"></div>
+
   <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-content">
+      <a href="#home" class="logo">KJ.</a>
 
-  <header>
-    <div class="container">
-      <nav>
-        <a href="#home" class="logo">Kushagra.</a>
-
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#achievements">Achievements</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
   <!-- HERO -->
-
   <main>
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-content">
+          <span class="hero-tag">WELCOME TO MY PORTFOLIO</span>
 
-          <div class="hero-tag">
-            Student • Game Developer • Creator
-          </div>
+          <h1>Hi, I'm <span class="accent">Kushagra</span></h1>
 
-          <h1>
-            Hi, I'm <span>Kushagra</span>
-          </h1>
+          <h2>Developer | Creator | Game Enthusiast</h2>
 
           <p>
-            I'm a student and aspiring developer interested in game
-            development, programming, technology and building creative
-            digital experiences.
+            I'm a developer passionate about building games, exploring technology,
+            solving problems and turning creative ideas into interactive experiences.
+            I enjoy learning new skills and bringing projects to life through code.
           </p>
 
-          <div class="buttons">
-            <a href="#projects" class="btn btn-primary">
-              Explore My Projects
-            </a>
-
-            <a href="#contact" class="btn btn-outline">
-              Contact Me
-            </a>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">Explore My Projects</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
           </div>
-
         </div>
       </div>
     </section>
 
     <!-- ABOUT -->
-
     <section id="about">
       <div class="container">
+        <h2 class="section-title">About <span class="accent">Me</span></h2>
+        <p class="section-subtitle">
+          A little introduction about who I am and what I enjoy creating.
+        </p>
 
-        <div class="section-heading">
-          <h2>About <span>Me</span></h2>
-          <p>A little introduction.</p>
+        <div class="about-grid">
+          <div class="card about-text">
+            <p>
+              I'm Kushagra Jeet Singh, a student and aspiring developer interested
+              in technology, programming and game development.
+            </p>
+
+            <p>
+              I enjoy developing Roblox experiences, experimenting with Lua/Luau,
+              designing gameplay systems and finding creative solutions to technical
+              challenges.
+            </p>
+
+            <p>
+              My goal is to keep improving my development skills, work on meaningful
+              projects and explore new possibilities in technology.
+            </p>
+          </div>
+
+          <div class="card info-card">
+            <h3>Quick Information</h3>
+            <p><strong>Name:</strong> Kushagra Jeet Singh</p>
+            <p><strong>Focus:</strong> Development & Technology</p>
+            <p><strong>Interest:</strong> Game Development</p>
+            <p><strong>Platform:</strong> Roblox</p>
+            <p><strong>Learning:</strong> Programming & Design</p>
+          </div>
         </div>
-
-        <div class="about-card">
-          <p>
-            Hello! I'm Kushagra, a student passionate about technology,
-            programming and game development.
-          </p>
-
-          <p>
-            I enjoy creating games, experimenting with new ideas,
-            understanding how systems work and solving technical problems.
-          </p>
-
-          <p>
-            My main interest is Roblox game development, where I work
-            with Lua/Luau, gameplay systems, NPCs and game design.
-            I'm continuously learning and improving my development skills.
-          </p>
-        </div>
-
       </div>
     </section>
 
     <!-- PROJECTS -->
-
     <section id="projects">
       <div class="container">
-
-        <div class="section-heading">
-          <h2>My <span>Projects</span></h2>
-          <p>Games and projects I've worked on.</p>
-        </div>
+        <h2 class="section-title">My <span class="accent">Projects</span></h2>
+        <p class="section-subtitle">
+          Games and projects I've worked on and continue to develop.
+        </p>
 
         <div class="projects-grid">
 
           <!-- DEMONBLOX -->
-
-          <article class="project-card">
+          <article class="card project-card">
             <div class="project-icon">⚔️</div>
-
             <h3>DemonBlox</h3>
-
+            <div class="project-type">Roblox Game</div>
+            <span class="project-role">Owner + Developer</span>
             <p class="project-description">
-              A Demon Slayer-inspired Roblox RPG featuring Slayer and
-              Demon factions, combat systems, special abilities, NPCs,
-              exploration, ranks and progression.
+              A Demon Slayer-inspired Roblox RPG featuring Slayer and Demon
+              factions, combat systems, unique environments, NPCs and progression.
             </p>
-
-            <div class="project-type">
-              Owner + Developer
-            </div>
-
-            <div class="project-role">
-              Solo-developed by me
-            </div>
-
-            <a
-              class="project-link"
-              href="https://www.roblox.com/games/108820000286951/DemonBlox"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View on Roblox →
+            <p class="project-description">
+              Solo-developed by me.
+            </p>
+            <a class="project-link"
+               href="https://www.roblox.com/games/108820000286951/DemonBlox"
+               target="_blank" rel="noopener noreferrer">
+              View Game ↗
             </a>
           </article>
 
           <!-- GROUND WAR -->
-
-          <article class="project-card">
+          <article class="card project-card">
             <div class="project-icon">🎖️</div>
-
             <h3>Ground War</h3>
-
+            <div class="project-type">Developer</div>
             <p class="project-description">
-              A military-themed Roblox game featuring combat,
-              action-packed battles and military gameplay.
+              A Roblox military warfare and combat game focused on battles,
+              teamwork and an immersive gameplay experience.
             </p>
-
-            <div class="project-type">
-              Developer
-            </div>
-
-            <a
-              class="project-link"
-              href="https://www.roblox.com/games/118367369949006/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View on Roblox →
+            <a class="project-link"
+               href="https://www.roblox.com/games/118367369949006/"
+               target="_blank" rel="noopener noreferrer">
+              View Game ↗
             </a>
           </article>
 
           <!-- FUTURE PROJECTS -->
-
-          <article class="project-card future-card">
+          <article class="card project-card">
             <div class="project-icon">🚀</div>
-
             <h3>Future Projects</h3>
-
+            <div class="project-type">Coming Soon</div>
             <p class="project-description">
-              More creative projects, games and experiments are
-              coming soon. Stay tuned!
+              More creative projects, game development experiments and
+              technology-based ideas are currently in the works.
             </p>
           </article>
 
@@ -614,153 +650,100 @@
     </section>
 
     <!-- ACHIEVEMENTS -->
-
     <section id="achievements">
       <div class="container">
+        <h2 class="section-title">My <span class="accent">Achievements</span></h2>
+        <p class="section-subtitle">
+          Some milestones and experiences I'm proud of.
+        </p>
 
-        <div class="section-heading">
-          <h2>My <span>Achievements</span></h2>
-          <p>Some milestones from my journey.</p>
-        </div>
-
-        <div class="achievement-card">
+        <div class="card achievement-card">
+          <img src="coder.png" alt="Game Making Competition achievement">
 
           <div>
             <h3>🏆 2nd Prize — Game Making Competition 2025</h3>
-
             <p>
-              Participated in a game-making competition at
-              NC Jindal Public School.
+              Secured second prize in a Game Making Competition held at
+              N C Jindal Public School.
             </p>
-
             <p>
-              Achieved 2nd place as part of a three-member team.
-            </p>
-
-            <p>
-              The experience helped me develop my creativity,
-              teamwork and game development skills.
+              Participated as part of a three-member team, collaborating
+              to create and present a game project.
             </p>
           </div>
-
-          <div>
-            <img
-              src="coder.png"
-              alt="Game Making Competition achievement"
-              class="achievement-image"
-            >
-          </div>
-
         </div>
       </div>
     </section>
 
     <!-- SKILLS -->
-
     <section id="skills">
       <div class="container">
-
-        <div class="section-heading">
-          <h2>My <span>Skills</span></h2>
-          <p>Click on any skill to learn more about it.</p>
-        </div>
+        <h2 class="section-title">My <span class="accent">Skills</span></h2>
+        <p class="section-subtitle">
+          Technologies and areas I'm learning and working with.
+          Click on a skill to learn more.
+        </p>
 
         <div class="skills-grid">
 
-          <details class="skill-item">
+          <details class="skill">
             <summary>Game Development</summary>
-            <p class="skill-description">
-              Creating interactive games, developing mechanics,
-              building gameplay experiences and improving game systems.
-            </p>
+            <p>Creating interactive games and developing gameplay experiences.</p>
           </details>
 
-          <details class="skill-item">
+          <details class="skill">
             <summary>Roblox Development</summary>
-            <p class="skill-description">
-              Developing Roblox experiences using Roblox Studio,
-              including environments, gameplay features and scripts.
-            </p>
+            <p>Building Roblox experiences using Studio and its development tools.</p>
           </details>
 
-          <details class="skill-item">
+          <details class="skill">
             <summary>Lua / Luau</summary>
-            <p class="skill-description">
-              Using Lua and Luau for Roblox scripting, game mechanics,
-              interactive objects and gameplay logic.
-            </p>
+            <p>Learning scripting for gameplay mechanics, systems and interactions.</p>
           </details>
 
-          <details class="skill-item">
+          <details class="skill">
             <summary>Programming</summary>
-            <p class="skill-description">
-              Understanding programming concepts, logical thinking,
-              writing code and building software-based solutions.
-            </p>
+            <p>Understanding programming concepts and applying them to projects.</p>
           </details>
 
-          <details class="skill-item">
+          <details class="skill">
             <summary>Coding</summary>
-            <p class="skill-description">
-              Practising coding, understanding algorithms and
-              developing solutions through programming.
-            </p>
+            <p>Writing, organizing and improving code for different applications.</p>
           </details>
 
-          <details class="skill-item">
+          <details class="skill">
             <summary>Game Design</summary>
-            <p class="skill-description">
-              Designing game environments, player experiences,
-              progression systems and engaging gameplay mechanics.
-            </p>
+            <p>Planning gameplay, environments, player experiences and mechanics.</p>
           </details>
 
-          <details class="skill-item">
+          <details class="skill">
             <summary>Problem Solving</summary>
-            <p class="skill-description">
-              Analysing problems, finding solutions and improving
-              systems through logical thinking.
-            </p>
+            <p>Breaking down challenges and finding practical solutions.</p>
           </details>
 
-          <details class="skill-item">
+          <details class="skill">
             <summary>Creative Thinking</summary>
-            <p class="skill-description">
-              Generating new ideas and turning concepts into
-              interesting projects and experiences.
-            </p>
+            <p>Developing original ideas and exploring different approaches.</p>
           </details>
 
-          <details class="skill-item">
+          <details class="skill">
             <summary>Teamwork</summary>
-            <p class="skill-description">
-              Collaborating with others, sharing ideas and
-              contributing towards common project goals.
-            </p>
+            <p>Collaborating with others to plan and complete projects.</p>
           </details>
 
-          <details class="skill-item">
+          <details class="skill">
             <summary>Debugging</summary>
-            <p class="skill-description">
-              Identifying script errors, investigating unexpected
-              behaviour and fixing problems in projects.
-            </p>
+            <p>Identifying errors, testing systems and improving functionality.</p>
           </details>
 
-          <details class="skill-item">
+          <details class="skill">
             <summary>Gameplay Systems</summary>
-            <p class="skill-description">
-              Working on combat, progression, rewards, player
-              interactions and other gameplay mechanics.
-            </p>
+            <p>Working with combat, progression, rewards and player interactions.</p>
           </details>
 
-          <details class="skill-item">
+          <details class="skill">
             <summary>NPC Development</summary>
-            <p class="skill-description">
-              Developing non-player character behaviour,
-              interactions, enemy logic and AI-based gameplay features.
-            </p>
+            <p>Exploring NPC behavior, interactions and game-world systems.</p>
           </details>
 
         </div>
@@ -768,73 +751,65 @@
     </section>
 
     <!-- CONTACT -->
-
     <section id="contact">
       <div class="container">
+        <div class="card contact-card">
+          <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
 
-        <div class="section-heading">
-          <h2>Get In <span>Touch</span></h2>
-          <p>Let's connect and share ideas.</p>
-        </div>
-
-        <div class="contact-card">
           <p>
-            Interested in game development, technology or collaboration?
-            Feel free to connect with me.
+            Interested in my projects or want to connect?
+            Feel free to check out my profiles and get in touch.
           </p>
 
-          <div class="contact-links">
-
-            <a
-              href="https://github.com/kushagrajeets-sys"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-outline"
-            >
+          <div class="contact-buttons">
+            <a class="btn btn-primary"
+               href="https://github.com/kushagrajeets-sys"
+               target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
 
-            <a
-              href="https://www.roblox.com/users/11788899475/profile"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-outline"
-            >
+            <a class="btn btn-secondary"
+               href="https://www.roblox.com/users/11788899475/profile"
+               target="_blank" rel="noopener noreferrer">
               Roblox Profile
             </a>
 
-            <button
-              type="button"
-              class="btn btn-primary"
-              id="discordButton"
-            >
+            <button class="btn btn-secondary" id="discordButton" type="button">
               Copy Discord Username
             </button>
-
           </div>
 
-          <p id="copyMessage" aria-live="polite" style="margin-top: 15px;"></p>
+          <p id="copyMessage" aria-live="polite"></p>
         </div>
-
       </div>
     </section>
-
   </main>
 
   <!-- FOOTER -->
-
   <footer>
     <div class="container">
-      <p>© 2026 Kushagra. All rights reserved.</p>
+      <p>© 2026 Kushagra Jeet Singh. All rights reserved.</p>
       <p>Designed and developed with passion.</p>
     </div>
   </footer>
 
-  <!-- JAVASCRIPT -->
-
   <script>
-    // Copy Discord username
+    // Allow only one skill to remain open at a time.
+    const skills = document.querySelectorAll("details.skill");
 
+    skills.forEach((skill) => {
+      skill.addEventListener("toggle", () => {
+        if (skill.open) {
+          skills.forEach((otherSkill) => {
+            if (otherSkill !== skill) {
+              otherSkill.open = false;
+            }
+          });
+        }
+      });
+    });
+
+    // Copy Discord username.
     const discordButton = document.getElementById("discordButton");
     const copyMessage = document.getElementById("copyMessage");
 
@@ -847,22 +822,6 @@
       } catch (error) {
         copyMessage.textContent = "Discord username: " + username;
       }
-    });
-
-    // Keep only one skill description open at a time
-
-    const skillItems = document.querySelectorAll(".skill-item");
-
-    skillItems.forEach((item) => {
-      item.addEventListener("toggle", () => {
-        if (item.open) {
-          skillItems.forEach((otherItem) => {
-            if (otherItem !== item) {
-              otherItem.open = false;
-            }
-          });
-        }
-      });
     });
   </script>
 
